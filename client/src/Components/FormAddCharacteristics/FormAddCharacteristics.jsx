@@ -32,39 +32,44 @@ const FormAddCharacteristics = ({ finalPath, field, title}) => {
     console.log("- - - - - - - -")
     axios.post(`https://api-museu-entomologiaufra.herokuapp.com/${finalPath}`, data).then((response) => {
       console.log(response);
+      document.location.reload(true);
     });
   };
 
   return (
     <>
-      <Formik
-        initialValues={initialValues}
-        onSubmit={onSubmit}
-        validationSchema={validationSchema}
-      >
-        {(formik) => (          
-          <Form>
-            {console.log(formik)}
-            <label className="mb-1" >Nome {title}</label>
-            <br />
+      <div className="container bg-light mt-5 pt-3">
+        <Formik
+          initialValues={initialValues}
+          onSubmit={onSubmit}
+          validationSchema={validationSchema}
+        >
+          {(formik) => (          
+            <Form>
+              {console.log(formik)}
+              <label className="mb-1" >Nome {title}</label>
+              <br />
 
-            <Field className="form-control mb-3" name={field} placeholder="Ex: Séssil..." />
-            
-            <div className="modal-footer">
-                <button
-                  type="button"
-                  className="btn btn-secondary"
-                  data-bs-dismiss="modal"
-                >
-                  Fechar
-                </button>
-                <button type="submit" className="btn btn-primary">
-                  Salvar
-                </button>
-              </div>
-          </Form>
-        )}
-      </Formik>
+              <Field className="form-control mb-3" name={field} placeholder="Insira a caracteristica aqui..." />
+              
+              <div className="modal-footer">
+                  {/* <button
+                    type="button"
+                    className="btn btn-secondary"
+                    data-bs-dismiss="modal"
+                  >
+                    Fechar
+                  </button> */}
+                  <button type="submit" className="btn btn-primary">
+                    Salvar
+                  </button>
+                </div>
+            </Form>
+          )}
+        </Formik>
+
+      </div>
+
     </>
   );
 };
