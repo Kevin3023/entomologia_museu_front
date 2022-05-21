@@ -1,36 +1,49 @@
-import React, { useState } from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Logo from "../../assets/img/Brasao_ufra.png";
-import FormAddCharacteristics from "../FormAddCharacteristics/FormAddCharacteristics";
+import HandleCharacteristcsPageAdmin from "../HandleCharacteristcsPageAdmin/HandleCharacteristcsPageAdmin";
 
 const AdminHomePage = () => {
   const navigate = useNavigate();
 
+  // useEffect(()=>{
+  //   axios.get("https://api-museu-entomologiaufra.herokuapp.com/filos").then((result)=>{
+  //     setTesteData(result.data)
+  //     console.log(result.data)
+  //   })
+  // },[])
+
+  const [testeData, setTesteData] = useState([])
+
   const [characteristcsStatus, setCharacteristcsStatus] = useState("")
 
-  const teste = (value) => {
-    setCharacteristcsStatus(value)
-    switch (characteristcsStatus) {
-      case "filo":
-        console.log("filo")
-        break;
-      case "classe":
-        console.log("classe")
-        break;
-      case "classe":
-        console.log("ordem")
-        break;
-      case "classe":
-        console.log("familia")
-        break;
-      default:
-        console.log("padrao")
-        break;
+  const showRightComponent = () => {
+    if(characteristcsStatus == "filo"){
+      return < HandleCharacteristcsPageAdmin finalPath={"filos"} field={"nome"} title={"filo"}/>
+    }else if (characteristcsStatus == "classe"){
+      return < HandleCharacteristcsPageAdmin />
+    }else if (characteristcsStatus == "ordem"){
+      return <h1 className="text-white" >ORDEM CARALHO</h1>
+    }else if (characteristcsStatus == "familia"){
+      return <h1 className="text-white" >FAMILIA CARALHO</h1>
+    }else if (characteristcsStatus == "genero"){
+      return <h1 className="text-white" >GENERO CARALHO</h1>
+    }else if (characteristcsStatus == "especie"){
+      return <h1 className="text-white" >ESPECIE CARALHO</h1>
+    }
+    else {
+      return <h1 className="text-white" ></h1>
     }
   }
-
+  
   return (
     <>
+      {/* {testeData.map((element, index) => {
+        return (
+          <h1 className="text-white" key={index} >{element.nome}</h1>
+        )
+      })} */}
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <div className="container-fluid">
           <img src={Logo} width="50px" height="50px" alt="Logo da Ufra" />
@@ -58,7 +71,6 @@ const AdminHomePage = () => {
               <li className="nav-item dropdown">
                 <a
                   className="nav-link dropdown-toggle"
-                  href="#"
                   id="navbarDropdownMenuLink"
                   role="button"
                   data-bs-toggle="dropdown"
@@ -72,15 +84,14 @@ const AdminHomePage = () => {
                 >
                   <li>
                     <a className="dropdown-item" onClick={()=>{
-                      teste("filo")
-
+                      setCharacteristcsStatus("filo")
                     }}>
                       Filo
                     </a>
                   </li>
                   <li>
                     <a className="dropdown-item" onClick={()=>{
-                      teste("classe")
+                      setCharacteristcsStatus("classe")
                     }}>
                       Classe
                     </a>
@@ -88,7 +99,6 @@ const AdminHomePage = () => {
                   <li>
                     <a className="dropdown-item" onClick={()=>{
                       setCharacteristcsStatus("ordem")
-                      teste()
                     }}>
                       Ordem
                     </a>
@@ -96,7 +106,6 @@ const AdminHomePage = () => {
                   <li>
                     <a className="dropdown-item" onClick={()=>{
                       setCharacteristcsStatus("familia")
-                      teste()
                     }}>
                       Familia
                     </a>
@@ -104,7 +113,6 @@ const AdminHomePage = () => {
                   <li>
                     <a className="dropdown-item" onClick={()=>{
                       setCharacteristcsStatus("genero")
-                      teste()
                     }}>
                       Gênero
                     </a>
@@ -112,7 +120,6 @@ const AdminHomePage = () => {
                   <li>
                     <a className="dropdown-item" onClick={()=>{
                       setCharacteristcsStatus("especie")
-                      teste()
                     }}>
                       Espécie
                     </a>
@@ -215,7 +222,7 @@ const AdminHomePage = () => {
         </div>
       </nav>
 
-     
+      {showRightComponent()}
 
     </>
   );
