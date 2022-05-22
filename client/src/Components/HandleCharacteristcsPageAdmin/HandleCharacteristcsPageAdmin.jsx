@@ -1,18 +1,18 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import FormAddCharacteristics from "../FormAddCharacteristics/FormAddCharacteristics";
+import FormAddCharacteristics from "../FormAddSingleCharacteristic/FormAddSingleCharacteristic";
 import HandleButtons from "../HandleButtons/HandleButtons";
 const HandleCharacteristcsPage = ({ finalPath, field, title }) => {
-  const [objectList, setOBjectList] = useState([]);
+  const [objectList, setObjectList] = useState([]);
 
   useEffect(() => {
     axios
       .get(`https://api-museu-entomologiaufra.herokuapp.com/${finalPath}`)
       .then((result) => {
-        setOBjectList(result.data);
+        setObjectList(result.data);
         console.log(result.data);
       });
-  }, []);
+  }, [objectList]);
 
   return (
     <div className="container rounded border-secondary bg-light p-4 mt-5">
@@ -20,6 +20,7 @@ const HandleCharacteristcsPage = ({ finalPath, field, title }) => {
         finalPath={finalPath}
         field={field}
         title={title}
+        setObjectList={setObjectList}
       />
       <table className="table table-striped table-hover">
         <thead>
