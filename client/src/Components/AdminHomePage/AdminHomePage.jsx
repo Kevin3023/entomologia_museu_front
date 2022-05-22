@@ -14,29 +14,38 @@ const AdminHomePage = () => {
   //   })
   // },[])
 
-  const [testeData, setTesteData] = useState([])
-
-  const [characteristcsStatus, setCharacteristcsStatus] = useState("")
+  const [characteristcsStatus, setCharacteristcsStatus] = useState("");
 
   const showRightComponent = () => {
-    if(characteristcsStatus == "filo"){
-      return < HandleCharacteristcsPageAdmin finalPath={"filos"} field={"nome"} title={"filo"}/>
-    }else if (characteristcsStatus == "classe"){
-      return < HandleCharacteristcsPageAdmin />
-    }else if (characteristcsStatus == "ordem"){
-      return <h1 className="text-white" >ORDEM CARALHO</h1>
-    }else if (characteristcsStatus == "familia"){
-      return <h1 className="text-white" >FAMILIA CARALHO</h1>
-    }else if (characteristcsStatus == "genero"){
-      return <h1 className="text-white" >GENERO CARALHO</h1>
-    }else if (characteristcsStatus == "especie"){
-      return <h1 className="text-white" >ESPECIE CARALHO</h1>
+    if (characteristcsStatus == "filo") {
+      return (
+        <HandleCharacteristcsPageAdmin
+          finalPath={"filos"}
+          field={"nome"}
+          title={"filo"}
+        />
+      );
+    } else if (characteristcsStatus == "classe") {
+      return (
+        <HandleCharacteristcsPageAdmin
+          finalPath={"filos"}
+          field={"nome"}
+          title={"filo"}
+        />
+      );
+    } else if (characteristcsStatus == "ordem") {
+      return <h1 className="text-white">ORDEM CARALHO</h1>;
+    } else if (characteristcsStatus == "familia") {
+      return <h1 className="text-white">FAMILIA CARALHO</h1>;
+    } else if (characteristcsStatus == "genero") {
+      return <h1 className="text-white">GENERO CARALHO</h1>;
+    } else if (characteristcsStatus == "especie") {
+      return <h1 className="text-white">ESPECIE CARALHO</h1>;
+    } else {
+      return <h1 className="text-white"></h1>;
     }
-    else {
-      return <h1 className="text-white" ></h1>
-    }
-  }
-  
+  };
+
   return (
     <>
       {/* {testeData.map((element, index) => {
@@ -83,44 +92,62 @@ const AdminHomePage = () => {
                   aria-labelledby="navbarDropdownMenuLink"
                 >
                   <li>
-                    <a className="dropdown-item" onClick={()=>{
-                      setCharacteristcsStatus("filo")
-                    }}>
+                    <a
+                      className="dropdown-item"
+                      onClick={() => {
+                        setCharacteristcsStatus("filo");
+                      }}
+                    >
                       Filo
                     </a>
                   </li>
                   <li>
-                    <a className="dropdown-item" onClick={()=>{
-                      setCharacteristcsStatus("classe")
-                    }}>
+                    <a
+                      className="dropdown-item"
+                      onClick={() => {
+                        setCharacteristcsStatus("classe");
+                      }}
+                    >
                       Classe
                     </a>
                   </li>
                   <li>
-                    <a className="dropdown-item" onClick={()=>{
-                      setCharacteristcsStatus("ordem")
-                    }}>
+                    <a
+                      className="dropdown-item"
+                      onClick={() => {
+                        setCharacteristcsStatus("ordem");
+                      }}
+                    >
                       Ordem
                     </a>
                   </li>
                   <li>
-                    <a className="dropdown-item" onClick={()=>{
-                      setCharacteristcsStatus("familia")
-                    }}>
+                    <a
+                      className="dropdown-item"
+                      onClick={() => {
+                        setCharacteristcsStatus("familia");
+                      }}
+                    >
                       Familia
                     </a>
                   </li>
                   <li>
-                    <a className="dropdown-item" onClick={()=>{
-                      setCharacteristcsStatus("genero")
-                    }}>
+                    <a
+                      className="dropdown-item"
+                      onClick={() => {
+                        setCharacteristcsStatus("genero");
+                      }}
+                    >
                       Gênero
                     </a>
                   </li>
                   <li>
-                    <a className="dropdown-item" onClick={()=>{
-                      setCharacteristcsStatus("especie")
-                    }}>
+                    <a
+                      className="dropdown-item"
+                      onClick={() => {
+                        setCharacteristcsStatus("especie");
+                      }}
+                    >
                       Espécie
                     </a>
                   </li>
@@ -222,7 +249,24 @@ const AdminHomePage = () => {
         </div>
       </nav>
 
-      {showRightComponent()}
+      {/* {showRightComponent()} */}
+
+      {characteristcsStatus == "filo" && (
+        <HandleCharacteristcsPageAdmin
+          finalPath={"filos"}
+          field={"nome"}
+          title={"filo"}
+        />
+      )}
+      {characteristcsStatus == "classe" && (
+        <HandleCharacteristcsPageAdmin
+          finalPath={"classes"}
+          field={"nome"}
+          title={"classe"}
+        />
+      )}
+
+
 
     </>
   );
