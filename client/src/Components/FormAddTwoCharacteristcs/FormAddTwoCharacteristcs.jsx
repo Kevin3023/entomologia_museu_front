@@ -28,8 +28,6 @@ const FormAddCharacteristics = ({
       .then((result) => {
         setOptions(result.data);
       });
-
-
   }, [finalPath, finalRelationshipPath]);
 
   let validationSchemaConfig = {
@@ -67,21 +65,16 @@ const FormAddCharacteristics = ({
               {/* {console.log(formik)} */}
 
               <label className="mb-1">Pertence a {titleRelationship}:</label>
-              {/* <Field
-                className="form-select mb-3"
+              <Field
                 as="select"
-                name="teste"
+                className="form-select mb-3"
+                name={nameRelationship}
               >
-                {option.map((value, key) => {
-                  return (
-                    <option key={key} value={value.value.toString()}>
-                      {value.label}
-                    </option>
-                  );
-                })}
-              </Field> */}
-              <Field as="select" name={nameRelationship}>
-                {options.map((option, key) => <option key={key} value={option.id.toString()}>{option.nome}</option>)}
+                {options.map((option, key) => (
+                  <option key={key} value={option.id.toString()}>
+                    {option.nome}
+                  </option>
+                ))}
               </Field>
 
               <label className="mb-1">{title}</label>
