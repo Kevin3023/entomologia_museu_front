@@ -10,6 +10,7 @@ const FormAddCharacteristics = ({
   field,
   title,
   setObjectList,
+  nameRelationship,
   titleRelationship,
   finalRelationshipPath,
 }) => {
@@ -17,7 +18,7 @@ const FormAddCharacteristics = ({
     [field]: "",
   };
 
-  const [option, setOption] = useState();
+  const [options, setOptions] = useState([]);
 
   useEffect(() => {
     axios
@@ -25,7 +26,7 @@ const FormAddCharacteristics = ({
         `https://api-museu-entomologiaufra.herokuapp.com/${finalRelationshipPath}`
       )
       .then((result) => {
-        setOption(result.data);
+        setOptions(result.data);
       });
 
 
@@ -35,13 +36,9 @@ const FormAddCharacteristics = ({
     //[field]: Yup.string().required("Esse valor não pode ser vazio!"),
   };
 
-  console.log(option)
-
   const validationSchema = Yup.object().shape(validationSchemaConfig);
 
   const onSubmit = (data) => {
-    console.log("form double")
-    
     axios
       .post(
         `https://api-museu-entomologiaufra.herokuapp.com/${finalPath}`,
@@ -49,12 +46,11 @@ const FormAddCharacteristics = ({
       )
       .then((response) => {
         console.log(response);
-      });
-
-    axios
-      .get(`https://api-museu-entomologiaufra.herokuapp.com/${finalPath}`)
-      .then((result) => {
-        setObjectList(result.data);
+        axios
+          .get(`https://api-museu-entomologiaufra.herokuapp.com/${finalPath}`)
+          .then((result) => {
+            setObjectList(result.data);
+          });
       });
   };
 
@@ -84,10 +80,8 @@ const FormAddCharacteristics = ({
                   );
                 })}
               </Field> */}
-              <Field as="select" name="color">
-                <option value="red">Red</option>
-                <option value="green">Green</option>
-                <option value="blue">Blue</option>
+              <Field as="select" name={nameRelationship}>
+                {options.map((option, key) => <option key={key} value={option.id.toString()}>{option.nome}</option>)}
               </Field>
 
               <label className="mb-1">{title}</label>

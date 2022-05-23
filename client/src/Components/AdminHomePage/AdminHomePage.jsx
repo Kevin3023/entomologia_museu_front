@@ -14,6 +14,23 @@ const AdminHomePage = () => {
   //   })
   // },[])
 
+  const forms = {
+    filo: {
+      finalPath:"filos",
+      field:"nome",
+      title:"Filo"      
+    },
+    classe: {
+      finalPath:"classes",
+      field:"nome",
+      title:"Classe",
+      fields:true,
+      finalRelationshipPath:"filos",
+      titleRelationship:"Filo",
+      nameRelationship:"filo.id"
+    },
+  }
+
   const [characteristcsStatus, setCharacteristcsStatus] = useState("");
 
 
@@ -220,29 +237,7 @@ const AdminHomePage = () => {
         </div>
       </nav>
 
-      {/* {showRightComponent()} */}
-
-      {characteristcsStatus === "filo" && (
-        <HandleCharacteristcsPageAdmin
-          finalPath={"filos"}
-          field={"nome"}
-          title={"Filo"}
-          fields={false}
-        />
-      )}
-
-      {characteristcsStatus === "classe" && (
-        <HandleCharacteristcsPageAdmin
-          finalPath={"classes"}
-          field={"nome"}
-          title={"Classe"}
-          fields={true}
-          finalRelationshipPath={"filos"}
-          titleRelationship={"Filo"}
-        />
-      )}
-
-
+      {characteristcsStatus && <HandleCharacteristcsPageAdmin {...forms[characteristcsStatus]} />}
 
     </>
   );

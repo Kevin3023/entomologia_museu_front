@@ -11,21 +11,24 @@ const HandleCharacteristcsPage = ({
   fields,
   titleRelationship,
   finalRelationshipPath,
+  nameRelationship
 }) => {
 
 
   const [objectList, setObjectList] = useState([]);
   const [dataList, setDataList] = useState([])
 
-  useEffect(() => {
+  const update = () => {
     axios
       .get(`https://api-museu-entomologiaufra.herokuapp.com/${finalPath}`)
-      .then((result) => {
-        setObjectList(result.data);
-        setDataList(objectList);
-        console.log(result.data);
-      });
-  }, []);
+    .then((result) => {
+      setObjectList(result.data);
+      setDataList(objectList);
+      console.log(result.data);
+    });
+  }
+
+  useEffect(update, [finalPath]);
 
   return (
     <>
@@ -37,7 +40,8 @@ const HandleCharacteristcsPage = ({
             title={title}
             setObjectList={setObjectList}
             titleRelationship={titleRelationship}
-            finalRelationshipPath={finalRelationshipPath}
+            nameRelationship={nameRelationship}
+            finalRelationshipPath={finalRelationshipPath}            
           />
           <table className="table table-striped table-hover">
             <thead>
@@ -86,6 +90,7 @@ const HandleCharacteristcsPage = ({
                       <HandleButtons
                         finalPath={finalPath}
                         idItem={element.id}
+                        update={() => update()}
                       />
                     </td>
                   </tr>

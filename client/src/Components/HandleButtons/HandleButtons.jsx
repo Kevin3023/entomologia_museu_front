@@ -1,7 +1,7 @@
 import axios from "axios";
 import React from "react";
 
-const HandleButtons = ({ finalPath, idItem }) => {
+const HandleButtons = ({ finalPath, idItem, update }) => {
   const handleDeleteItem = () => {
     //criar window confirm onde precisar de window confirm
     axios
@@ -9,7 +9,8 @@ const HandleButtons = ({ finalPath, idItem }) => {
         `https://api-museu-entomologiaufra.herokuapp.com/${finalPath}/${idItem}`
       )
       .then((result) => {
-        console.log(result)
+        console.log(result);
+        update();
       });
   };
 
