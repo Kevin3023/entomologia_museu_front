@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { Formik, Form, Field, ErrorMessage } from "formik";
+import React from "react";
+import { Formik, Form, Field} from "formik";
 import * as Yup from "yup";
 import axios from "axios";
 
@@ -10,8 +10,6 @@ const FormAddCharacteristics = ({ finalPath, field, title, setObjectList}) => {
     [field]: "",
   };
 
-  const [valores, setValores] = useState([]);
-
   let validationSchemaConfig = {
     //[field]: Yup.string().required("Esse valor não pode ser vazio!"),    
   }
@@ -20,6 +18,8 @@ const FormAddCharacteristics = ({ finalPath, field, title, setObjectList}) => {
   const validationSchema = Yup.object().shape(validationSchemaConfig);
 
   const onSubmit = (data) => {
+    console.log("form single")
+
     axios.post(`https://api-museu-entomologiaufra.herokuapp.com/${finalPath}`, data).then((response) => {
       console.log(response);
     });
@@ -42,11 +42,11 @@ const FormAddCharacteristics = ({ finalPath, field, title, setObjectList}) => {
         >
           {(formik) => (          
             <Form>
-              {console.log(formik)}
-              <label className="mb-1" >Nome {title}</label>
+              {/* {console.log(formik)} */}
+              <label className="mb-1" >{title}</label>
               <br />
 
-              <Field className="form-control mb-3" name={field} placeholder="Insira a caracteristica aqui..." />
+              <Field className="form-control mb-3" name={field} placeholder={`Inserir ${title} aqui...`} />
               
               <div className="modal-footer">
                   <button type="submit" className="btn btn-primary">
@@ -59,8 +59,11 @@ const FormAddCharacteristics = ({ finalPath, field, title, setObjectList}) => {
 
       </div>
 
+      
+
     </>
   );
 };
 
 export default FormAddCharacteristics;
+
