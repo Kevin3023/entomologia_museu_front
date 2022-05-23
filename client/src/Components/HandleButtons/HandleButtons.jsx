@@ -4,14 +4,16 @@ import React from "react";
 const HandleButtons = ({ finalPath, idItem, update }) => {
   const handleDeleteItem = () => {
     //criar window confirm onde precisar de window confirm
-    axios
+    window.confirm("Deseja excluir esse item ?") ? axios
       .delete(
         `https://api-museu-entomologiaufra.herokuapp.com/${finalPath}/${idItem}`
       )
       .then((result) => {
         console.log(result);
         update();
-      });
+      })
+      :
+      console.log("nada")
   };
 
   return (
