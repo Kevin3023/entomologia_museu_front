@@ -16,35 +16,6 @@ const AdminHomePage = () => {
 
   const [characteristcsStatus, setCharacteristcsStatus] = useState("");
 
-  const showRightComponent = () => {
-    if (characteristcsStatus == "filo") {
-      return (
-        <HandleCharacteristcsPageAdmin
-          finalPath={"filos"}
-          field={"nome"}
-          title={"filo"}
-        />
-      );
-    } else if (characteristcsStatus == "classe") {
-      return (
-        <HandleCharacteristcsPageAdmin
-          finalPath={"filos"}
-          field={"nome"}
-          title={"filo"}
-        />
-      );
-    } else if (characteristcsStatus == "ordem") {
-      return <h1 className="text-white">ORDEM CARALHO</h1>;
-    } else if (characteristcsStatus == "familia") {
-      return <h1 className="text-white">FAMILIA CARALHO</h1>;
-    } else if (characteristcsStatus == "genero") {
-      return <h1 className="text-white">GENERO CARALHO</h1>;
-    } else if (characteristcsStatus == "especie") {
-      return <h1 className="text-white">ESPECIE CARALHO</h1>;
-    } else {
-      return <h1 className="text-white"></h1>;
-    }
-  };
 
   return (
     <>
@@ -251,18 +222,23 @@ const AdminHomePage = () => {
 
       {/* {showRightComponent()} */}
 
-      {characteristcsStatus == "filo" && (
+      {characteristcsStatus === "filo" && (
         <HandleCharacteristcsPageAdmin
           finalPath={"filos"}
           field={"nome"}
-          title={"filo"}
+          title={"Filo"}
+          fields={false}
         />
       )}
-      {characteristcsStatus == "classe" && (
+
+      {characteristcsStatus === "classe" && (
         <HandleCharacteristcsPageAdmin
           finalPath={"classes"}
           field={"nome"}
-          title={"classe"}
+          title={"Classe"}
+          fields={true}
+          finalRelationshipPath={"filos"}
+          titleRelationship={"Filo"}
         />
       )}
 
