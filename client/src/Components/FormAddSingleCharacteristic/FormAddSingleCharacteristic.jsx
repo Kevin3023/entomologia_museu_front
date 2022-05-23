@@ -22,13 +22,12 @@ const FormAddCharacteristics = ({ finalPath, field, title, setObjectList}) => {
 
     axios.post(`https://api-museu-entomologiaufra.herokuapp.com/${finalPath}`, data).then((response) => {
       console.log(response);
-    });
-
-    axios
+      axios
       .get(`https://api-museu-entomologiaufra.herokuapp.com/${finalPath}`)
       .then((result) => {
         setObjectList(result.data);
       });
+    });
 
   };
 
