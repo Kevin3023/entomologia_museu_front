@@ -9,7 +9,7 @@ const HandleButtons = ({ finalPath, idItem }) => {
         `https://api-museu-entomologiaufra.herokuapp.com/${finalPath}/${idItem}`
       )
       .then((result) => {
-        document.location.reload(true);
+        console.log(result)
       });
   };
 
