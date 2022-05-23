@@ -23,9 +23,10 @@ const HandleCharacteristcsPage = ({
       .get(`https://api-museu-entomologiaufra.herokuapp.com/${finalPath}`)
     .then((result) => {
       setObjectList(result.data);
-      setDataList(objectList);
-      console.log(result.data);
+      console.log(result.data[0].filo.nome);
+
     });
+    
   }
 
   useEffect(update, [finalPath]);
@@ -55,6 +56,7 @@ const HandleCharacteristcsPage = ({
                 return (
                   <tr key={index}>
                     <td>{element.nome}</td>
+                    <td>{element.filo.nome}</td>
                     <td className="d-flex justify-content-end">
                       <HandleButtons
                         finalPath={finalPath}
