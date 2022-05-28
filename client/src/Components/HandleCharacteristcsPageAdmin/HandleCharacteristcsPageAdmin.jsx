@@ -11,7 +11,8 @@ const HandleCharacteristcsPage = ({
   fields,
   titleRelationship,
   finalRelationshipPath,
-  nameRelationship
+  nameRelationship,
+  tableName
 }) => {
 
 
@@ -24,6 +25,7 @@ const HandleCharacteristcsPage = ({
     .then((result) => {
       setObjectList(result.data);
       console.log("handleCharacteristcsAdmin")
+      console.log(result.data)
 
     });
     
@@ -42,7 +44,7 @@ const HandleCharacteristcsPage = ({
             setObjectList={setObjectList}
             titleRelationship={titleRelationship}
             nameRelationship={nameRelationship}
-            finalRelationshipPath={finalRelationshipPath}            
+            finalRelationshipPath={finalRelationshipPath}
           />
           <table className="table table-striped table-hover">
             <thead>
@@ -56,11 +58,12 @@ const HandleCharacteristcsPage = ({
                 return (
                   <tr key={index}>
                     <td>{element.nome}</td>
-                    {/* <td>{element.filo.nome}</td> */}
+                    <td>{element[tableName].nome}</td>
                     <td className="d-flex justify-content-end">
                       <HandleButtons
                         finalPath={finalPath}
                         idItem={element.id}
+                        update={() => update()}
                       />
                     </td>
                   </tr>
