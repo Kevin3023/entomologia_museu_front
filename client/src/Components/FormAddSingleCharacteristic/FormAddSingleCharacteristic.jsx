@@ -3,7 +3,7 @@ import { Formik, Form, Field} from "formik";
 import * as Yup from "yup";
 import axios from "axios";
 
-import "./FormAddCharacteristics.css";
+import "./FormAddSingleCharacteristics.css";
 
 const FormAddCharacteristics = ({ finalPath, field, title, setObjectList}) => {
   const initialValues = {
