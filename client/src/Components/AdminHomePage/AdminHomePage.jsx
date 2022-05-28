@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Logo from "../../assets/img/Brasao_ufra.png";
 import HandleCharacteristcsPageAdmin from "../HandleCharacteristcsPageAdmin/HandleCharacteristcsPageAdmin";
+import OrdemPage from "../OrdemPage/OrdemPage";
 
 const AdminHomePage = () => {
   const navigate = useNavigate();
@@ -14,22 +15,22 @@ const AdminHomePage = () => {
   //   })
   // },[])
 
-  const forms = {
-    filo: {
-      finalPath:"filos",
-      field:"nome",
-      title:"Filo"      
-    },
-    classe: {
-      finalPath:"classes",
-      field:"nome",
-      title:"Classe",
-      fields:true,
-      finalRelationshipPath:"filos",
-      titleRelationship:"Filo",
-      nameRelationship:"filo.id"
-    },
-  }
+  // const forms = {
+  //   filo: {
+  //     finalPath:"filos",
+  //     field:"nome",
+  //     title:"Filo"      
+  //   },
+  //   classe: {
+  //     finalPath:"classes",
+  //     field:"nome",
+  //     title:"Classe",
+  //     fields:true,
+  //     finalRelationshipPath:"filos",
+  //     titleRelationship:"Filo",
+  //     nameRelationship:"filo.id"
+  //   },
+  // }
 
   const [characteristcsStatus, setCharacteristcsStatus] = useState("");
 
@@ -237,7 +238,42 @@ const AdminHomePage = () => {
         </div>
       </nav>
 
-      {characteristcsStatus && <HandleCharacteristcsPageAdmin {...forms[characteristcsStatus]} />}
+      {/* {characteristcsStatus && <HandleCharacteristcsPageAdmin {...forms[characteristcsStatus]} />} */}
+      {characteristcsStatus == "filo" && (
+        <HandleCharacteristcsPageAdmin
+          finalPath={"filos"}
+          field={"nome"}
+          title={"filo"}
+          fields={false}
+        />
+      )}
+      {characteristcsStatus == "classe" && (
+        <HandleCharacteristcsPageAdmin
+          finalPath={"classes"}
+          field={"nome"}
+          title={"Classe"}
+          fields={true}
+          finalRelationshipPath={"filos"}
+          titleRelationship={"Filo"}
+          nameRelationship={"filo.id"}
+          tableName={"filo"}
+        />
+      )}
+      {characteristcsStatus == "ordem" && (
+        <OrdemPage/>
+      )}
+      {/* {characteristcsStatus == "ordem" && (
+        <HandleCharacteristcsPageAdmin
+          finalPath={"ordem"}
+          field={"nome"}
+          title={"Ordem"}
+          fields={true}
+          finalRelationshipPath={"filos"}
+          titleRelationship={"Filo"}
+          nameRelationship={"filo.id"}
+          tableName={"filo"}
+        />
+      )} */}
 
     </>
   );
