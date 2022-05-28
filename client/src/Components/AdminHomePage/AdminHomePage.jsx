@@ -2,7 +2,9 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Logo from "../../assets/img/Brasao_ufra.png";
+import AddAndViewInsectPage from "../AddAndViewInsectPage/AddAndViewInsectPage";
 import HandleCharacteristcsPageAdmin from "../HandleCharacteristcsPageAdmin/HandleCharacteristcsPageAdmin";
+import MetamorfosePage from "../MetamorfosePage/MetamorfosePage";
 import OrdemPage from "../OrdemPage/OrdemPage";
 
 const AdminHomePage = () => {
@@ -19,7 +21,7 @@ const AdminHomePage = () => {
   //   filo: {
   //     finalPath:"filos",
   //     field:"nome",
-  //     title:"Filo"      
+  //     title:"Filo"
   //   },
   //   classe: {
   //     finalPath:"classes",
@@ -33,7 +35,6 @@ const AdminHomePage = () => {
   // }
 
   const [characteristcsStatus, setCharacteristcsStatus] = useState("");
-
 
   return (
     <>
@@ -158,27 +159,52 @@ const AdminHomePage = () => {
                   aria-labelledby="navbarDropdownMenuLink"
                 >
                   <li>
-                    <a className="dropdown-item" href="#">
+                    <a
+                      className="dropdown-item"
+                      onClick={() => {
+                        setCharacteristcsStatus("antena");
+                      }}
+                    >
                       Antena
                     </a>
                   </li>
                   <li>
-                    <a className="dropdown-item" href="#">
+                    <a
+                      className="dropdown-item"
+                      onClick={() => {
+                        setCharacteristcsStatus("aparelhoBucal");
+                      }}
+                    >
                       Aparelho Bucal
                     </a>
                   </li>
                   <li>
-                    <a className="dropdown-item" href="#">
+                    <a
+                      className="dropdown-item"
+                      onClick={() => {
+                        setCharacteristcsStatus("asa");
+                      }}
+                    >
                       Asa
                     </a>
                   </li>
                   <li>
-                    <a className="dropdown-item" href="#">
+                    <a
+                      className="dropdown-item"
+                      onClick={() => {
+                        setCharacteristcsStatus("abdomen");
+                      }}
+                    >
                       Abdomen
                     </a>
                   </li>
                   <li>
-                    <a className="dropdown-item" href="#">
+                    <a
+                      className="dropdown-item"
+                      onClick={() => {
+                        setCharacteristcsStatus("perna");
+                      }}
+                    >
                       Perna
                     </a>
                   </li>
@@ -200,7 +226,12 @@ const AdminHomePage = () => {
                   aria-labelledby="navbarDropdownMenuLink"
                 >
                   <li>
-                    <a className="dropdown-item" href="#">
+                    <a
+                      className="dropdown-item"
+                      onClick={() => {
+                        setCharacteristcsStatus("metamorfose");
+                      }}
+                    >
                       Metamorfose
                     </a>
                   </li>
@@ -222,12 +253,16 @@ const AdminHomePage = () => {
                   aria-labelledby="navbarDropdownMenuLink"
                 >
                   <li>
-                    <a className="dropdown-item" href="#">
+                    <a className="dropdown-item" onClick={() => {
+                        setCharacteristcsStatus("comportamento");
+                      }}>
                       Comportamento
                     </a>
                   </li>
                   <li>
-                    <a className="dropdown-item" href="#">
+                    <a className="dropdown-item" onClick={() => {
+                        setCharacteristcsStatus("habitat");
+                      }}>
                       Habitat
                     </a>
                   </li>
@@ -243,7 +278,7 @@ const AdminHomePage = () => {
         <HandleCharacteristcsPageAdmin
           finalPath={"filos"}
           field={"nome"}
-          title={"filo"}
+          title={"Filo"}
           fields={false}
         />
       )}
@@ -259,9 +294,10 @@ const AdminHomePage = () => {
           tableName={"filo"}
         />
       )}
-      {characteristcsStatus == "ordem" && (
+      {/* {characteristcsStatus == "ordem" && (
         <OrdemPage/>
-      )}
+      )} */}
+
       {/* {characteristcsStatus == "ordem" && (
         <HandleCharacteristcsPageAdmin
           finalPath={"ordem"}
@@ -275,6 +311,83 @@ const AdminHomePage = () => {
         />
       )} */}
 
+      {characteristcsStatus == "antena" && (
+        <HandleCharacteristcsPageAdmin
+          finalPath={"antenas"}
+          field={"nome_antena"}
+          title={"Antena"}
+          fields={false}
+        />
+      )}
+
+      {characteristcsStatus == "aparelhoBucal" && (
+        <HandleCharacteristcsPageAdmin
+          finalPath={"bocas"}
+          field={"nome"}
+          title={"Aparelho Bucal"}
+          fields={false}
+        />
+      )}
+
+      {characteristcsStatus == "asa" && (
+        <HandleCharacteristcsPageAdmin
+          finalPath={"asas"}
+          field={"nome_asa"}
+          title={"Asa"}
+          fields={false}
+        />
+      )}
+
+      {characteristcsStatus == "abdomen" && (
+        <HandleCharacteristcsPageAdmin
+          finalPath={"abdomens"}
+          field={"nome_abdomen"}
+          title={"Abdomen"}
+          fields={false}
+        />
+      )}
+
+      {characteristcsStatus == "perna" && (
+        <HandleCharacteristcsPageAdmin
+          finalPath={"pernas"}
+          field={"nome_perna"}
+          title={"Perna"}
+          fields={false}
+        />
+      )}
+
+      {characteristcsStatus == "metamorfose" && (
+        <MetamorfosePage
+          finalPath={"metamorfoses"}
+          field1={"tipo_metamorfose"}
+          field2={"descricao_meta"}
+          title={"Metamorfose"}
+          descriptionTitle={"Descrição"}
+        />
+      )}
+
+      {characteristcsStatus == "comportamento" && (
+        <HandleCharacteristcsPageAdmin
+          finalPath={"comportamentos"}
+          field={"tipo_comportamento"}
+          title={"Comportamento"}
+          fields={false}
+        />
+      )}
+
+      {characteristcsStatus == "habitat" && (
+        <HandleCharacteristcsPageAdmin
+          finalPath={"habitats"}
+          field={"tipo_habitat"}
+          title={"Habitat"}
+          fields={false}
+        />
+      )}
+
+
+      {characteristcsStatus == "especie" && (
+        <AddAndViewInsectPage/>
+      )}
     </>
   );
 };
