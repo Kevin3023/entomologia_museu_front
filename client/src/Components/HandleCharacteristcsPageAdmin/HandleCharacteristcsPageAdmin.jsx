@@ -24,9 +24,6 @@ const HandleCharacteristcsPage = ({
       .get(`https://api-museu-entomologiaufra.herokuapp.com/${finalPath}`)
     .then((result) => {
       setObjectList(result.data);
-      console.log("handleCharacteristcsAdmin")
-      console.log(result.data)
-
     });
     
   }
