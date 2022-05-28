@@ -314,7 +314,7 @@ const AdminHomePage = () => {
       {characteristcsStatus == "antena" && (
         <HandleCharacteristcsPageAdmin
           finalPath={"antenas"}
-          field={"nome_antena"}
+          field={"nome"}
           title={"Antena"}
           fields={false}
         />
@@ -332,7 +332,7 @@ const AdminHomePage = () => {
       {characteristcsStatus == "asa" && (
         <HandleCharacteristcsPageAdmin
           finalPath={"asas"}
-          field={"nome_asa"}
+          field={"nome"}
           title={"Asa"}
           fields={false}
         />
@@ -341,7 +341,7 @@ const AdminHomePage = () => {
       {characteristcsStatus == "abdomen" && (
         <HandleCharacteristcsPageAdmin
           finalPath={"abdomens"}
-          field={"nome_abdomen"}
+          field={"nome"}
           title={"Abdomen"}
           fields={false}
         />
@@ -350,7 +350,7 @@ const AdminHomePage = () => {
       {characteristcsStatus == "perna" && (
         <HandleCharacteristcsPageAdmin
           finalPath={"pernas"}
-          field={"nome_perna"}
+          field={"nome"}
           title={"Perna"}
           fields={false}
         />
@@ -369,7 +369,7 @@ const AdminHomePage = () => {
       {characteristcsStatus == "comportamento" && (
         <HandleCharacteristcsPageAdmin
           finalPath={"comportamentos"}
-          field={"tipo_comportamento"}
+          field={"nome"}
           title={"Comportamento"}
           fields={false}
         />
@@ -378,7 +378,7 @@ const AdminHomePage = () => {
       {characteristcsStatus == "habitat" && (
         <HandleCharacteristcsPageAdmin
           finalPath={"habitats"}
-          field={"tipo_habitat"}
+          field={"nome"}
           title={"Habitat"}
           fields={false}
         />

@@ -102,8 +102,8 @@ const MetamorfosePage = ({
           {objectList.map((element, index) => {
             return (
               <tr key={index}>
-                <td>{element.tipo_metamorfose}</td>
-                <td>{element.descricao_meta}</td>
+                <td>{element.nome}</td>
+                <td>{element.descricao}</td>
                 <td className="d-flex justify-content-end">
                   <HandleButtons
                     finalPath={finalPath}
