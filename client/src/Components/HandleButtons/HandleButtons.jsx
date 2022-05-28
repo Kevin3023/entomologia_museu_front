@@ -58,7 +58,10 @@ const HandleButtons = ({ finalPath, idItem, update }) => {
               >
                 Close
               </button>
-              <button type="button" className="btn btn-primary">
+              <button type="button" className="btn btn-primary" 
+              data-bs-dismiss="modal"// --> use for close modal when it's done
+              onClick={() => {console.log("funcionou")}}
+              >
                 Understood
               </button>
             </div>
