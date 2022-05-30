@@ -61,6 +61,8 @@ const HandleCharacteristcsPage = ({
                         finalPath={finalPath}
                         idItem={element.id}
                         update={() => update()}
+                        title={title}
+                        field={field}
                       />
                     </td>
                   </tr>
@@ -93,6 +95,8 @@ const HandleCharacteristcsPage = ({
                         finalPath={finalPath}
                         idItem={element.id}
                         update={() => update()}
+                        title={title}
+                        field={field}
                       />
                     </td>
                   </tr>
