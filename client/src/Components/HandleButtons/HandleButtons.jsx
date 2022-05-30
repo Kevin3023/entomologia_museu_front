@@ -1,19 +1,26 @@
 import axios from "axios";
 import React from "react";
 
-const HandleButtons = ({ finalPath, idItem, update }) => {
+const HandleButtons = ({ finalPath, idItem, update, title, field }) => {
   const handleDeleteItem = () => {
     //criar window confirm onde precisar de window confirm
-    window.confirm("Deseja excluir esse item ?") ? axios
-      .delete(
-        `https://api-museu-entomologiaufra.herokuapp.com/${finalPath}/${idItem}`
-      )
-      .then((result) => {
-        console.log(result);
-        update();
-      })
-      :
-      console.log("nada")
+    window.confirm("Deseja excluir esse item ?")
+      ? axios
+          .delete(
+            `https://api-museu-entomologiaufra.herokuapp.com/${finalPath}/${idItem}`
+          )
+          .then((result) => {
+            console.log(result);
+            update();
+          })
+      : console.log("nada");
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const formData = new FormData(e.target);
+    const data = Object.fromEntries(formData);
+    console.log("*** handleSubmit", data);
   };
 
   return (
@@ -40,7 +47,7 @@ const HandleButtons = ({ finalPath, idItem, update }) => {
           <div className="modal-content">
             <div className="modal-header">
               <h5 className="modal-title" id="staticBackdropLabel">
-                Modal title
+                Editar {title}
               </h5>
               <button
                 type="button"
@@ -49,22 +56,40 @@ const HandleButtons = ({ finalPath, idItem, update }) => {
                 aria-label="Close"
               ></button>
             </div>
-            <div className="modal-body">...</div>
-            <div className="modal-footer">
+            <div className="modal-body">
+             
+              <form onSubmit={handleSubmit}> 
+                <input
+                  type="text"
+                  name={field} //name in database
+                  placeholder={`Inserir ${title} aqui`}
+                  // onChange={handleInputChange}
+                  // value={formValues.name || ""}
+                  className="mb-5 form-control"
+                />
+                <div className="modal-footer">
               <button
                 type="button"
                 className="btn btn-secondary"
                 data-bs-dismiss="modal"
               >
-                Close
+                Fechar
               </button>
-              <button type="button" className="btn btn-primary" 
-              data-bs-dismiss="modal"// --> use for close modal when it's done
-              onClick={() => {console.log("funcionou")}}
+              <button
+                type="submit"
+                className="btn btn-primary"
+                data-bs-dismiss="modal" // --> use for close modal when it's done
+                onClick={() => {
+                  console.log("funcionou");
+                }}
               >
-                Understood
+                Salvar
               </button>
             </div>
+              </form>
+
+            </div>
+            
           </div>
         </div>
       </div>
