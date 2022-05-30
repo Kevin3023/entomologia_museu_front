@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { Container, NavbarBrand } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import Logo from "../../assets/img/Brasao_ufra.png";
 import AddAndViewInsectPage from "../AddAndViewInsectPage/AddAndViewInsectPage";
@@ -44,11 +45,11 @@ const AdminHomePage = () => {
         )
       })} */}
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
-        <div className="container-fluid">
+        <Container fluid>
           <img src={Logo} width="50px" height="50px" alt="Logo da Ufra" />
-          <a className="navbar-brand ms-2" href="/">
+          <NavbarBrand className="ms-2" >
             Museu de Entomologia
-          </a>
+          </NavbarBrand>
           <button
             className="navbar-toggler"
             type="button"
@@ -270,7 +271,7 @@ const AdminHomePage = () => {
               </li>
             </ul>
           </div>
-        </div>
+        </Container>
       </nav>
 
       {/* {characteristcsStatus && <HandleCharacteristcsPageAdmin {...forms[characteristcsStatus]} />} */}
@@ -280,6 +281,13 @@ const AdminHomePage = () => {
           field={"nome"}
           title={"Filo"}
           fields={false}
+          fields_={[
+            {
+              label: "Nome",
+              name: "nome",
+              type: "text"              
+            }
+          ]}          
         />
       )}
       {characteristcsStatus == "classe" && (
@@ -292,6 +300,19 @@ const AdminHomePage = () => {
           titleRelationship={"Filo"}
           nameRelationship={"filo.id"}
           tableName={"filo"}
+          fields_={[
+            {
+              label: "Nome",
+              name: "nome",
+              type: "text"              
+            },
+            {
+              label: "Filo",
+              name: "filo_id",
+              type: "select",
+              path: "filos"              
+            },
+          ]}
         />
       )}
       {/* {characteristcsStatus == "ordem" && (
