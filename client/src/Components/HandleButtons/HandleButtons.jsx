@@ -20,7 +20,7 @@ const HandleButtons = ({ finalPath, idItem, update, title, field }) => {
     e.preventDefault();
     const formData = new FormData(e.target);
     const data = Object.fromEntries(formData);
-    console.log("*** handleSubmit", data);
+    console.log(data);
   };
 
   return (
