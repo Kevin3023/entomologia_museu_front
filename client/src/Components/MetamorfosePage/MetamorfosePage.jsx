@@ -109,6 +109,8 @@ const MetamorfosePage = ({
                     finalPath={finalPath}
                     idItem={element.id}
                     update={() => update()}
+                    title={title}
+                    // field={field} -> special case
                   />
                 </td>
               </tr>
