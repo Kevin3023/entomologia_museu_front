@@ -25,11 +25,12 @@ const App = () => {
   //data from backend
   const [data, setData] = useState([
     {
-      nomeVulgar: "Louva Deus",
+      nome_comum: "Louva Deus",
+      nome_cientifico: "Nome cientifico Louva Deus",
       abdomen: "abdomen louva Deus",
       asa: "asa louva Deus",
       perna: "perna louva Deus",
-      aparelhoBucal: "aparelho bucal louva Deus",
+      aparelho_bucal: "aparelho bucal louva Deus",
       antena: "antena louva Deus",
       metamorfose: "metamorfose louva Deus",
       comportamento: "comportamento louva Deus",
@@ -42,11 +43,12 @@ const App = () => {
       curiosidade: "é um inseto que curte louvar a Deus",
     },
     {
-      nomeVulgar: "Besourinho",
+      nome_comum: "Besourinho",
+      nome_cientifico: "nome cientifico Besourinho",
       abdomen: "abdomen Besourinho",
       asa: "asa Besourinho",
       perna: "perna Besourinho",
-      aparelhoBucal: "aparelho bucal Besourinho",
+      aparelho_bucal: "aparelho bucal Besourinho",
       antena: "antena Besourinho",
       metamorfose: "metamorfose Besourinho",
       comportamento: "comportamento Besourinho",
@@ -60,11 +62,12 @@ const App = () => {
         "inseto de boa com a vida que curte batalhar com outros insetos",
     },
     {
-      nomeVulgar: "Cavalo do Cao",
+      nome_comum: "Cavalo do Cao",
+      nome_cientifico: "nome cientifico cavalo do cao",
       abdomen: "abdomen Cavalo do Cao",
       asa: "asa Cavalo do Cao",
       perna: "perna Cavalo do Cao",
-      aparelhoBucal: "aparelho bucal Cavalo do Cao",
+      aparelho_bucal: "aparelho bucal Cavalo do Cao",
       antena: "antena Cavalo do Cao",
       metamorfose: "metamorfose Cavalo do Cao",
       comportamento: "comportamento Cavalo do Cao",
@@ -99,14 +102,7 @@ const App = () => {
   };
 
   return (
-    <BrowserRouter>
-      
-      {/* {data.map((element, index) => {
-        return (
-          <h1 key={index} >{element.nome_abdomen}</h1>
-        )
-      })} */}
-      
+    <BrowserRouter>      
       <Routes>
         <Route path="/" element={
             <HomePage
