@@ -11,7 +11,7 @@ const InsetoDetails = ({ data }) => {
 
   const catchTheInsect = (insect) => {
     console.log(insect);
-    return insect.nomeVulgar === params.nomeVulgarInseto;
+    return insect.nome_comum === params.nomeVulgarInseto;
   };
 
   let exactInsect = data.filter(catchTheInsect);
@@ -19,7 +19,7 @@ const InsetoDetails = ({ data }) => {
 
   return (
     <>
-      <BugInformation dataInsect={dataInsect} />
+      <BugInformation data={dataInsect} />
     </>
   );
 };
