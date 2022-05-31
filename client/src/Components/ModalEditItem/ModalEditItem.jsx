@@ -2,10 +2,12 @@ import React from "react";
 import { Button, Modal } from "react-bootstrap";
 
 const ModalEditItem = (props) => {
+
   return (
-    <Modal show={props.show} onHide={props.handleClose}>
+    <Modal backdrop="static" show={props.show} onHide={props.handleClose}>
       <Modal.Header closeButton>
-        <Modal.Title>Editar {props.title}</Modal.Title>
+        {console.log(props.data)}
+        <Modal.Title>Adicionar / Editar {props.title}</Modal.Title>
       </Modal.Header>
       <Modal.Body>
           {props.content}
