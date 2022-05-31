@@ -47,7 +47,7 @@ const AdminHomePage = () => {
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <Container fluid>
           <img src={Logo} width="50px" height="50px" alt="Logo da Ufra" />
-          <NavbarBrand className="ms-2" >
+          <NavbarBrand className="ms-2" href="/">
             Museu de Entomologia
           </NavbarBrand>
           <button
