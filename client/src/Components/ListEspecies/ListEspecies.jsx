@@ -18,12 +18,12 @@ const ListEspecies = ({data}) => {
                 data.map((inseto, index) => {
                     return(
           <div key={index} className="col mb-5" onClick={() => {
-              navigate(`/${inseto.nomeVulgar}`)
+              navigate(`/${inseto.nome_comum}`)
             }}>
             <div className="card">
-              <img src={bug} className="card-img-top" alt="imagem do inseto" title={inseto.nomeVulgar}/>
+              <img src={bug} className="card-img-top" alt="imagem do inseto" title={inseto.nome_comum}/>
               <div className="card-body">
-                <h5 className="card-title"><b>{inseto.nomeVulgar}</b></h5>
+                <h5 className="card-title"><b>{inseto.nome_comum}</b></h5>
                 <p className="card-text">
                   <b>Habitat:</b> {inseto.habitat}
                 </p>
