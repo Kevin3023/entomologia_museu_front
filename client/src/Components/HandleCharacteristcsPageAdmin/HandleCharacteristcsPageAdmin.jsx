@@ -99,8 +99,8 @@ const HandleCharacteristcsPage = ({
         show={modalShow}
         title={title}
         data={data}
-        content={<MyForm onSubmit={(data) => handleSave(data)} data={data} />}
-        handleClose={() => setModalShow(false)}
+        content={<MyForm onSubmit={(data) => handleSave(data)} data={data} title={title} handleClose={() => setModalShow(false)}/>}
+        
       />
       <h2 className="text-center">{title}</h2>
       <div className="d-flex justify-content-center">
