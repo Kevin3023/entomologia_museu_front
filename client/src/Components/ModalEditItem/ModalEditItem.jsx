@@ -13,12 +13,7 @@ const ModalEditItem = (props) => {
           {props.content}
       </Modal.Body>
       <Modal.Footer>
-        <Button variant="secondary" onClick={props.handleClose}>
-          Cancelar
-        </Button>
-        <Button variant="primary" onClick={props.handleSave}>
-          Salvar
-        </Button>
+
       </Modal.Footer>
     </Modal>
   );
