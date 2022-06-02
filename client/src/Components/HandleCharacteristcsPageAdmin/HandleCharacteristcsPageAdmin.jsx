@@ -1,9 +1,6 @@
 import axios from "axios";
-import { Button, Form, Modal } from "react-bootstrap";
+import { Button } from "react-bootstrap";
 import React, { useEffect, useState } from "react";
-import FormAddSingleCharacteristic from "../FormAddSingleCharacteristic/FormAddSingleCharacteristic";
-import FormAddTwoCharacteristics from "../FormAddTwoCharacteristcs/FormAddTwoCharacteristcs";
-import HandleButtons from "../HandleButtons/HandleButtons";
 import ModalEditItem from "../ModalEditItem/ModalEditItem";
 
 // forms
@@ -35,8 +32,7 @@ const HandleCharacteristcsPage = ({
 }) => {
   const [objectList, setObjectList] = useState([]);
   const [modalShow, setModalShow] = useState(false);
-  const [data, setData] = useState({});
-  const [nome, setNome] = useState("");
+  const [unitData, setUnitData] = useState({});
 
   const update = () => {
     axios
@@ -61,17 +57,30 @@ const HandleCharacteristcsPage = ({
             `https://api-museu-entomologiaufra.herokuapp.com/${finalPath}/${id}`
           )
           .then((result) => {
-            setData(result.data);
+            setUnitData(result.data);
             setModalShow(true);
           })
       : (() => {
-          setData({});
+          setUnitData({});
           setModalShow(true);
         })();
   };
 
   const handleSave = (data) => {
-    setModalShow(false);
+    console.log(data);
+    axios
+      .post(
+        `https://api-museu-entomologiaufra.herokuapp.com/${finalPath}`, data)
+      .then((response) => {
+        console.log(response);
+        axios
+          .get(`https://api-museu-entomologiaufra.herokuapp.com/${finalPath}`)
+          .then((result) => {
+            setObjectList(result.data);
+            setModalShow(false);
+            alert(`${title} adicionado com sucesso`);
+          });
+      });
   };
 
   useEffect(update, [finalPath]);
@@ -98,9 +107,15 @@ const HandleCharacteristcsPage = ({
       <ModalEditItem
         show={modalShow}
         title={title}
-        data={data}
-        content={<MyForm onSubmit={(data) => handleSave(data)} data={data} title={title} handleClose={() => setModalShow(false)}/>}
-        
+        data={unitData}
+        content={
+          <MyForm
+            onSubmit={(data) => handleSave(data)}
+            data={unitData}
+            title={title}
+            handleClose={() => setModalShow(false)}
+          />
+        }
       />
       <h2 className="text-center">{title}</h2>
       <div className="d-flex justify-content-center">
