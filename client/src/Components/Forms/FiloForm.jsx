@@ -1,29 +1,45 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Button, Modal } from "react-bootstrap";
 
-const FiloForm = ({ data, title, handleClose, handleSave }) => {
+const FiloForm = ({ data, title, handleClose, onSubmit }) => {
   useEffect(() => {
+    console.log("filo form")
+    
     console.log(data);
-  }, []);
+  }, [data]);
+
+  const [value, setValue] = useState(data.nome || '')
+
+  const handleInputChange = (e) => {
+    console.log("***** handleInputChange", e.target.value)
+    setValue(e.target.value)
+  }
 
   const handleData = (e) => {
     e.preventDefault();
+    
+    const formData = new FormData(e.target)
+    const finalData = Object.fromEntries(formData)
 
+    if (data.id){
+      finalData.id = data.id
+    } 
 
-    handleSave()
+    console.log("*** handle submit", finalData)
+    onSubmit(finalData) //function that send the data
   };
 
   return (
     <>
-      <form /*onSubmit={handleData}*/>
+      <form onSubmit={handleData}>
         <label className="form-label fs-5">{title}</label>
         <input
           className="form-control"
           type="text"
-          name={data.nome || title}
+          name={'nome'}
           placeholder={`Inserir ${title} aqui`}
-          /* onChange={handleInputChange} */
-          value={data.nome || ""}
+          onChange={handleInputChange}
+          value={value}
         />
         <Modal.Footer>
             <Button variant="secondary" onClick={handleClose}>
