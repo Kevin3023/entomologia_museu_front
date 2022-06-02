@@ -254,16 +254,22 @@ const AdminHomePage = () => {
                   aria-labelledby="navbarDropdownMenuLink"
                 >
                   <li>
-                    <a className="dropdown-item" onClick={() => {
+                    <a
+                      className="dropdown-item"
+                      onClick={() => {
                         setCharacteristcsStatus("comportamento");
-                      }}>
+                      }}
+                    >
                       Comportamento
                     </a>
                   </li>
                   <li>
-                    <a className="dropdown-item" onClick={() => {
+                    <a
+                      className="dropdown-item"
+                      onClick={() => {
                         setCharacteristcsStatus("habitat");
-                      }}>
+                      }}
+                    >
                       Habitat
                     </a>
                   </li>
@@ -285,39 +291,30 @@ const AdminHomePage = () => {
             {
               label: "Nome",
               name: "nome",
-              type: "text"              
-            }
-          ]}          
+              type: "text",
+            },
+          ]}
         />
       )}
       {characteristcsStatus == "classe" && (
         <HandleCharacteristcsPageAdmin
           finalPath={"classes"}
-          field={"nome"}
           title={"Classe"}
-          fields={true}
-          finalRelationshipPath={"filos"}
-          titleRelationship={"Filo"}
-          nameRelationship={"filo.id"}
-          tableName={"filo"}
           fields_={[
             {
               label: "Nome",
               name: "nome",
-              type: "text"              
+              type: "text",
             },
             {
               label: "Filo",
               name: "filo_id",
               type: "select",
-              path: "filos"              
+              path: "filos",
             },
           ]}
         />
       )}
-      {/* {characteristcsStatus == "ordem" && (
-        <OrdemPage/>
-      )} */}
 
       {/* {characteristcsStatus == "ordem" && (
         <HandleCharacteristcsPageAdmin
@@ -378,12 +375,43 @@ const AdminHomePage = () => {
       )}
 
       {characteristcsStatus == "metamorfose" && (
-        <MetamorfosePage
+        <HandleCharacteristcsPageAdmin
           finalPath={"metamorfoses"}
-          field1={"tipo_metamorfose"}
-          field2={"descricao_meta"}
           title={"Metamorfose"}
-          descriptionTitle={"Descrição"}
+          fields_={[
+            {
+              label: "Nome",
+              name: "nome",
+              type: "text",
+            },
+            {
+              label: "Filo",
+              name: "filo_id",
+              type: "select",
+              path: "filos",
+            },
+          ]}
+        />
+      )}
+
+      {characteristcsStatus == "ordem" && (
+        <HandleCharacteristcsPageAdmin
+        finalPath={"ordem"}
+        title={"Ordem"}
+        descriptionTitle={"Descrição"}
+        fields_={[
+          {
+            label: "Nome",
+            name: "nome",
+            type: "text",
+          },
+          {
+            label: "Filo",
+            name: "filo_id",
+            type: "select",
+            path: "filos",
+          },
+        ]}
         />
       )}
 
@@ -405,10 +433,7 @@ const AdminHomePage = () => {
         />
       )}
 
-
-      {characteristcsStatus == "especie" && (
-        <AddAndViewInsectPage/>
-      )}
+      {characteristcsStatus == "especie" && <AddAndViewInsectPage />}
     </>
   );
 };
