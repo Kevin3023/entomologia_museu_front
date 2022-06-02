@@ -21,13 +21,7 @@ import PernasForm from "../Forms/PernasForm";
 
 const HandleCharacteristcsPage = ({
   finalPath,
-  field,
   title,
-  fields,
-  titleRelationship,
-  finalRelationshipPath,
-  nameRelationship,
-  tableName,
   fields_,
 }) => {
   const [objectList, setObjectList] = useState([]);
@@ -101,6 +95,7 @@ const HandleCharacteristcsPage = ({
     "comportamentos": ComportamentoForm,
     "habitats": HabitatForm,
   }[finalPath];
+
 
   return (
     <div className="container rounded border-secondary bg-light p-4 mt-5">
