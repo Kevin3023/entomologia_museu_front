@@ -320,20 +320,21 @@ const AdminHomePage = () => {
         <HandleCharacteristcsPageAdmin
           finalPath={"familias"}
           title={"Família"}
-          fields_={[
-            {
-              label: "Nome",
-              name: "nome",
-              type: "text",
-            },
-            {
-              label: "Ordem",
-              name: "ordem_id",
-              type: "select",
-              path: "filos",
-            },
-          ]}
         />
+      )}
+
+{characteristcsStatus == "genero" && (
+        <HandleCharacteristcsPageAdmin
+          finalPath={"generos"}
+          title={"Gênero"}
+        />
+      )}
+
+{characteristcsStatus == "especie" && (
+        <HandleCharacteristcsPageAdmin
+          finalPath={"especies"}
+          title={"Espécie"}
+         />
       )}
 
 
