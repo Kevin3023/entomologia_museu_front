@@ -316,18 +316,26 @@ const AdminHomePage = () => {
         />
       )}
 
-      {/* {characteristcsStatus == "ordem" && (
+{characteristcsStatus == "familia" && (
         <HandleCharacteristcsPageAdmin
-          finalPath={"ordem"}
-          field={"nome"}
-          title={"Ordem"}
-          fields={true}
-          finalRelationshipPath={"filos"}
-          titleRelationship={"Filo"}
-          nameRelationship={"filo.id"}
-          tableName={"filo"}
+          finalPath={"familias"}
+          title={"Família"}
+          fields_={[
+            {
+              label: "Nome",
+              name: "nome",
+              type: "text",
+            },
+            {
+              label: "Ordem",
+              name: "ordem_id",
+              type: "select",
+              path: "filos",
+            },
+          ]}
         />
-      )} */}
+      )}
+
 
       {characteristcsStatus == "antena" && (
         <HandleCharacteristcsPageAdmin
