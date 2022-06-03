@@ -2,34 +2,28 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Button, Modal } from "react-bootstrap";
 
-const ClasseForm = ({ data, title, handleClose, onSubmit}) => {
-    let relationships = ["filos"]
-    
+const ClasseForm = ({ data, title, handleClose, onSubmit }) => {
+  let relationships = ["filos"];
 
-   useEffect(() => {
+  useEffect(() => {
     console.log("classe form");
     console.log(data);
-    
-    relationships.map((value, index)=>{
-        axios.get(`https://api-museu-entomologiaufra.herokuapp.com/${value}`)
-          .then((result) => {
-            listRelationshipData.push(result.data);
-            }).then(()=>{
-                console.log(listRelationshipData)
-                
-            });
-    })
+
+    axios
+        .get(`https://api-museu-entomologiaufra.herokuapp.com/${relationships[0]}`)
+        .then((result) => {
+          setListFiloData(result.data);
+        })
+      
 
   }, [data]);
 
-  const [value, setValue] = useState(data.nome || "");
-  const listRelationshipData = []
-  const [formValues, setFormValues] = useState({})
+  const [nome, setNome] = useState(data.nome || "");
+  const [listFiloData, setListFiloData] = useState([]);
 
-
-  const handleInputChange = (e) => {
-    console.log("***** handleInputChange", e.target.value);
-    setValue(e.target.value);
+  const handleInputChangeNome = (e) => {
+    console.log("***** handleInputChangeNome", e.target.value);
+    setNome(e.target.value);
   };
 
   const handleData = (e) => {
@@ -42,6 +36,12 @@ const ClasseForm = ({ data, title, handleClose, onSubmit}) => {
       finalData.id = data.id;
     }
 
+    finalData.filo = { //setting id of the relationship
+      id: finalData.filo_id
+    }
+
+    delete finalData.filo_id // erasing filo_id because it doesn't exist :)
+
     console.log("*** handle submit", finalData);
     onSubmit(finalData); //function that send the data
   };
@@ -49,15 +49,25 @@ const ClasseForm = ({ data, title, handleClose, onSubmit}) => {
   return (
     <>
       <form onSubmit={handleData}>
-        <label className="form-label fs-5">{title}</label>
+        <label className="form-label fs-5">Classe</label>
         <input
-          className="form-control"
+          className="form-control mb-3"
           type="text"
           name={"nome"}
-          placeholder={`Inserir ${title} aqui`}
-          onChange={handleInputChange}
-          value={value}
+          placeholder={`Inserir classe aqui`}
+          onChange={handleInputChangeNome}
+          value={nome}
         />
+
+        <label className="form-label fs-5">Filo</label>
+        <select name="filo_id" className="form-select">
+          {listFiloData.map((value, key) => {
+              return(
+              <option key={key} value={value.id}>
+                {value.nome}
+              </option>)
+          })}
+        </select>
 
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
