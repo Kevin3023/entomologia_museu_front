@@ -103,6 +103,7 @@ const HandleCharacteristcsPage = ({
         show={modalShow}
         title={title}
         data={unitData}
+        handleClose={() => setModalShow(false)}
         content={
           <MyForm
             onSubmit={(data) => handleSave(data)}
