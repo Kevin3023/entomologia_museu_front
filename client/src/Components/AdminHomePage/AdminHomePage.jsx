@@ -442,7 +442,7 @@ const AdminHomePage = () => {
         />
       )}
 
-      {characteristcsStatus == "especie" && <AddAndViewInsectPage />}
+      {/* {characteristcsStatus == "especie" && <AddAndViewInsectPage />} */}
     </>
   );
 };
