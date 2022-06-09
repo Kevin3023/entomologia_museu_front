@@ -73,7 +73,7 @@ const FamiliaForm = ({ data, handleClose, onSubmit }) => {
     delete finalData.ordem_id; // erasing ordem_id because it doesn't exist :)
 
     console.log("*** handle submit", finalData);
-    onSubmit(finalData); //function that send the data
+    window.confirm("deseja salvar/alterar o item ?") ? onSubmit(finalData) /*function that send the data */ : console.log("nhew")
   };
 
   return (

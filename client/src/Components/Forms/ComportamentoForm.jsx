@@ -26,7 +26,7 @@ const ComportamentoForm = ({ data, title, handleClose, onSubmit }) => {
     } 
 
     console.log("*** handle submit", finalData)
-    onSubmit(finalData) //function that send the data
+    window.confirm("deseja salvar/alterar o item ?") ? onSubmit(finalData) /*function that send the data */ : console.log("nhew")
   };
 
   return (
