@@ -3,6 +3,7 @@ import Carousel from 'react-bootstrap/Carousel';
 import img1 from "../../assets/tutorialAdmin/1.png"
 import img2 from "../../assets/tutorialAdmin/2.png"
 import img3 from "../../assets/tutorialAdmin/3.png"
+import { FooterMain } from '../FooterMain/FooterMain';
 
 const DefaultTutorialPageAdmin = () => {
     return ( <div className="container rounded border-secondary bg-light p-4 mt-5">
@@ -49,7 +50,6 @@ const DefaultTutorialPageAdmin = () => {
         </Carousel.Caption>
       </Carousel.Item>
     </Carousel>
-
 
 
     </div>
