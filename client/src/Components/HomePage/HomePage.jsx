@@ -3,6 +3,7 @@ import FormSearchBug from "../FormSearchBug/FormSearchBug";
 import NavMain from "../NavMain/NavMain";
 
 import ListEspecies from "../ListEspecies/ListEspecies";
+import FooterMain from "../FooterMain/FooterMain";
 
 const HomePage = ({
   handleSubmit,
@@ -24,6 +25,8 @@ const HomePage = ({
         setInputValue={setInputValue}
       />
       {validationData ? <ListEspecies data={data} /> : <div></div>}
+
+      <FooterMain/>
 
     </>
   );
