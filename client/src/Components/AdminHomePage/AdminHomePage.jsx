@@ -4,6 +4,7 @@ import { Container, NavbarBrand } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import Logo from "../../assets/img/Brasao_ufra.png";
 import AddAndViewInsectPage from "../AddAndViewInsectPage/AddAndViewInsectPage";
+import DefaultTutorialPageAdmin from "../DefaultTutorialPageAdmin/DefaultTutorialPageAdmin";
 import HandleCharacteristcsPageAdmin from "../HandleCharacteristcsPageAdmin/HandleCharacteristcsPageAdmin";
 import MetamorfosePage from "../MetamorfosePage/MetamorfosePage";
 import OrdemPage from "../OrdemPage/OrdemPage";
@@ -35,7 +36,7 @@ const AdminHomePage = () => {
   //   },
   // }
 
-  const [characteristcsStatus, setCharacteristcsStatus] = useState("");
+  const [characteristcsStatus, setCharacteristcsStatus] = useState("default");
 
   return (
     <>
@@ -64,7 +65,9 @@ const AdminHomePage = () => {
           <div className="collapse navbar-collapse" id="navbarNavDropdown">
             <ul className="navbar-nav">
               <li className="nav-item">
-                <a className="nav-link" aria-current="page" href="/admin">
+                <a className="nav-link" aria-current="page" href="/admin" onClick={() => {
+                        setCharacteristcsStatus("dafault");
+                      }}>
                   Home
                 </a>
               </li>
@@ -281,6 +284,11 @@ const AdminHomePage = () => {
       </nav>
 
       {/* {characteristcsStatus && <HandleCharacteristcsPageAdmin {...forms[characteristcsStatus]} />} */}
+
+      {characteristcsStatus == "default" && (
+        <DefaultTutorialPageAdmin/>
+      )}
+
       {characteristcsStatus == "filo" && (
         <HandleCharacteristcsPageAdmin
           finalPath={"filos"}
@@ -296,6 +304,7 @@ const AdminHomePage = () => {
           ]}
         />
       )}
+
       {characteristcsStatus == "classe" && (
         <HandleCharacteristcsPageAdmin
           finalPath={"classes"}
