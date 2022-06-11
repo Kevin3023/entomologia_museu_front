@@ -3,14 +3,13 @@ import Carousel from 'react-bootstrap/Carousel';
 import img1 from "../../assets/tutorialAdmin/1.png"
 import img2 from "../../assets/tutorialAdmin/2.png"
 import img3 from "../../assets/tutorialAdmin/3.png"
-import { FooterMain } from '../FooterMain/FooterMain';
 
 const DefaultTutorialPageAdmin = () => {
     return ( <div className="container rounded border-secondary bg-light p-4 mt-5">
         <h2 className='text-center' >Como usar o sistema</h2>
-        <p>Para estar <b>visualizando</b>, <b>alterando</b> ou <b>adicionando</b> novas informacoes, basta clicar em um dos botoes de navegacao que automaticamente ira abrir uma lista de propriedade que voce pode estar tratando</p>
+        <p>Para estar <b>visualizando</b>, <b>alterando</b> ou <b>adicionando</b> novas informações, basta clicar em um dos botões de navegação que automaticamente ira abrir uma lista de propriedades que você pode estar tratando</p>
         <h4 className='text-center'>Exemplo</h4>
-        <p className='text-center'>Acessar a pagina de filos.</p>
+        <p className='text-center'>Acessar a página de filos.</p>
 
         
     <Carousel>
@@ -22,7 +21,7 @@ const DefaultTutorialPageAdmin = () => {
         />
         <Carousel.Caption>
           <h3>Clique em Taxonomia</h3>
-          <p>Ao clicar, ira abrir uma lista de propriedades para estar acessando</p>
+          <p>Ao clicar, irá abrir uma lista de propriedades para você estar acessando</p>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item interval={500}>
@@ -33,7 +32,7 @@ const DefaultTutorialPageAdmin = () => {
         />
         <Carousel.Caption>
           <h3>Clique em filo</h3>
-          <p>Ao clicar em filo, ira abrir a pagina com os filos existentes, podendo editar, adicionar e excluir os mesmos.</p>
+          <p>Ao clicar em filo, irá abrir a página com os filos existentes, logo podendo editar, adicionar e excluir os mesmos.</p>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
@@ -43,7 +42,7 @@ const DefaultTutorialPageAdmin = () => {
           alt="Third slide"
         />
         <Carousel.Caption>
-          <h3>Pronto, voce esta na pagina de filos</h3>
+          <h3>Pronto, você esta na página de filos</h3>
           <p>
             Agora é só estar editando, excluindo ou adicionando novos dados.
           </p>
