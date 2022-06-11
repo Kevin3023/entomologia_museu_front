@@ -63,7 +63,7 @@ const EspecieForm = ({ data, handleClose, onSubmit }) => {
       )
       .then((result) => {
         setListGeneroData(result.data);
-      })
+      });
 
     //   MORFOLOGIA
 
@@ -134,8 +134,6 @@ const EspecieForm = ({ data, handleClose, onSubmit }) => {
       .then((result) => {
         setListHabitatData(result.data);
       });
-
-
   }, [data]);
 
   const [nome_cientifico, setNomeCientifico] = useState(
@@ -186,27 +184,62 @@ const EspecieForm = ({ data, handleClose, onSubmit }) => {
       finalData.id = data.id;
     }
 
-    // finalData.familia = {
-    //   //setting id of the relationship
-    //   id: finalData.familia_id,
-    //   ordem: {
-    //     id: finalData.ordem_id,
-    //     classe: {
-    //       id: finalData.classe_id,
-    //       filo: {
-    //         id: finalData.filo_id,
-    //       },
-    //     },
-    //   },
-    // };
+    finalData.genero = {
+      id: finalData.genero_id,
+    };
+    finalData.familia = {
+      id: finalData.familia_id,
+    };
+    finalData.ordem = {
+      id: finalData.ordem_id,
+    };
+    finalData.classe = {
+      id: finalData.classe_id,
+    };
+    finalData.filo = {
+      id: finalData.filo_id,
+    };
+    finalData.habitat = {
+      id: finalData.habitat_id,
+    };
+    finalData.metamorfose = {
+      id: finalData.metamorfose_id,
+    };
+    finalData.comportamento = {
+      id: finalData.comportamento_id,
+    };
+    finalData.pernas = {
+      id: finalData.perna_id,
+    };
+    finalData.asas = {
+      id: finalData.asa_id,
+    };
+    finalData.abdomen = {
+      id: finalData.abdomen_id,
+    };
+    finalData.aparelho_bucal = {
+      id: finalData.aparelho_bucal_id,
+    };
+    finalData.antenas = {
+      id: finalData.antena_id,
+    };
 
-    // delete finalData.filo_id; // erasing filo_id because it doesn't exist :)
-    // delete finalData.classe_id; // erasing classe_id because it doesn't exist :)
-    // delete finalData.ordem_id; // erasing ordem_id because it doesn't exist :)
-    // delete finalData.familia_id; // erasing familia_id because it doesn't exist :)
+    delete finalData.filo_id; // erasing filo_id because it doesn't exist :)
+    delete finalData.classe_id; // erasing classe_id because it doesn't exist :)
+    delete finalData.ordem_id; // erasing ordem_id because it doesn't exist :)
+    delete finalData.genero_id; // erasing familia_id because it doesn't exist :)
+    delete finalData.familia_id; // erasing familia_id because it doesn't exist :)
+    delete finalData.habitat_id; // erasing familia_id because it doesn't exist :)
+    delete finalData.metamorfose_id; // erasing familia_id because it doesn't exist :)
+    delete finalData.comportamento_id; // erasing familia_id because it doesn't exist :)
+    delete finalData.perna_id; // erasing familia_id because it doesn't exist :)
+    delete finalData.asa_id; // erasing familia_id because it doesn't exist :)
+    delete finalData.abdomen_id; // erasing familia_id because it doesn't exist :)
+    delete finalData.aparelho_bucal_id; // erasing familia_id because it doesn't exist :)
+    delete finalData.antena_id; // erasing familia_id because it doesn't exist :)
 
-    // console.log("*** handle submit", finalData);
-    // window.confirm("deseja salvar/alterar o item ?") ? onSubmit(finalData) /*function that send the data */ : console.log("nhew")
+    console.log("*** handle submit", finalData);
+    window.confirm("deseja salvar/alterar o item ?") ? onSubmit(finalData) /*function that send the data */ : console.log("nhew")
   };
 
   return (
@@ -216,7 +249,7 @@ const EspecieForm = ({ data, handleClose, onSubmit }) => {
         <input
           className="form-control mb-3"
           type="text"
-          name={"nome_cientifico"}
+          name="nome_cientifico"
           placeholder={`Inserir gênero aqui`}
           onChange={handleInputChangeNomeCientifico}
           value={nome_cientifico}
@@ -226,17 +259,16 @@ const EspecieForm = ({ data, handleClose, onSubmit }) => {
         <input
           className="form-control mb-3"
           type="text"
-          name={"nome_comum"}
+          name="nome_comum"
           placeholder={`Inserir gênero aqui`}
           onChange={handleInputChangeNomeComum}
           value={nome_comum}
         />
 
         {/* TAXONOMIA */}
-
-        <label className="form-label fs-5">Gênero</label>
-        <select name="classe_id" className="form-select mb-3">
-          {listGeneroData.map((value, key) => {
+        <label className="form-label fs-5">Filo</label>
+        <select name="filo_id" className="form-select mb-3">
+          {listFiloData.map((value, key) => {
             return (
               <option key={key} value={value.id}>
                 {value.nome}
@@ -248,17 +280,6 @@ const EspecieForm = ({ data, handleClose, onSubmit }) => {
         <label className="form-label fs-5">Classe</label>
         <select name="classe_id" className="form-select mb-3">
           {listClasseData.map((value, key) => {
-            return (
-              <option key={key} value={value.id}>
-                {value.nome}
-              </option>
-            );
-          })}
-        </select>
-
-        <label className="form-label fs-5">Filo</label>
-        <select name="filo_id" className="form-select mb-3">
-          {listFiloData.map((value, key) => {
             return (
               <option key={key} value={value.id}>
                 {value.nome}
@@ -281,6 +302,17 @@ const EspecieForm = ({ data, handleClose, onSubmit }) => {
         <label className="form-label fs-5">Família</label>
         <select name="familia_id" className="form-select mb-3">
           {listFamiliaData.map((value, key) => {
+            return (
+              <option key={key} value={value.id}>
+                {value.nome}
+              </option>
+            );
+          })}
+        </select>
+
+        <label className="form-label fs-5">Gênero</label>
+        <select name="genero_id" className="form-select mb-3">
+          {listGeneroData.map((value, key) => {
             return (
               <option key={key} value={value.id}>
                 {value.nome}
@@ -395,104 +427,3 @@ const EspecieForm = ({ data, handleClose, onSubmit }) => {
 };
 
 export default EspecieForm;
-
-/** {
-    "abdomen": {
-      "id": 0,
-      "nome": "string"
-    },
-    "antenas": {
-      "id": 0,
-      "nome": "string"
-    },
-    "aparelho_bucal": {
-      "id": 0,
-      "nome": "string"
-    },
-    "asas": {
-      "id": 0,
-      "nome": "string"
-    },
-    "classe": {
-      "filo": {
-        "id": 0,
-        "nome": "string"
-      },
-      "id": 0,
-      "nome": "string"
-    },
-    "comportamento": {
-      "id": 0,
-      "nome": "string"
-    },
-    "curiosidades": "string",
-    "familia": {
-      "id": 0,
-      "nome": "string",
-      "ordem": {
-        "classe": {
-          "filo": {
-            "id": 0,
-            "nome": "string"
-          },
-          "id": 0,
-          "nome": "string"
-        },
-        "id": 0,
-        "nome": "string"
-      }
-    },
-    "filo": {
-      "id": 0,
-      "nome": "string"
-    },
-    "genero": {
-      "familia": {
-        "id": 0,
-        "nome": "string",
-        "ordem": {
-          "classe": {
-            "filo": {
-              "id": 0,
-              "nome": "string"
-            },
-            "id": 0,
-            "nome": "string"
-          },
-          "id": 0,
-          "nome": "string"
-        }
-      },
-      "id": 0,
-      "nome": "string"
-    },
-    "habitat": {
-      "id": 0,
-      "nome": "string"
-    },
-    "id": 0,
-    "image_url": "string",
-    "metamorfose": {
-      "descricao": "string",
-      "id": 0,
-      "nome": "string"
-    },
-    "nome_cientifico": "string",
-    "nome_comum": "string",
-    "ordem": {
-      "classe": {
-        "filo": {
-          "id": 0,
-          "nome": "string"
-        },
-        "id": 0,
-        "nome": "string"
-      },
-      "id": 0,
-      "nome": "string"
-    },
-    "pernas": {
-      "id": 0,
-      "nome": "string"
-    }
-  } */
