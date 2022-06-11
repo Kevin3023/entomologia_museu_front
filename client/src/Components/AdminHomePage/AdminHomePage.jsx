@@ -3,11 +3,9 @@ import React, { useEffect, useState } from "react";
 import { Container, NavbarBrand } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import Logo from "../../assets/img/Brasao_ufra.png";
-import AddAndViewInsectPage from "../AddAndViewInsectPage/AddAndViewInsectPage";
 import DefaultTutorialPageAdmin from "../DefaultTutorialPageAdmin/DefaultTutorialPageAdmin";
 import HandleCharacteristcsPageAdmin from "../HandleCharacteristcsPageAdmin/HandleCharacteristcsPageAdmin";
-import MetamorfosePage from "../MetamorfosePage/MetamorfosePage";
-import OrdemPage from "../OrdemPage/OrdemPage";
+import HandleEspecie from "../HandleEspecie/HandleEspecie";
 
 const AdminHomePage = () => {
   const navigate = useNavigate();
@@ -65,9 +63,14 @@ const AdminHomePage = () => {
           <div className="collapse navbar-collapse" id="navbarNavDropdown">
             <ul className="navbar-nav">
               <li className="nav-item">
-                <a className="nav-link" aria-current="page" href="/admin" onClick={() => {
-                        setCharacteristcsStatus("dafault");
-                      }}>
+                <a
+                  className="nav-link"
+                  aria-current="page"
+                  href="/admin"
+                  onClick={() => {
+                    setCharacteristcsStatus("dafault");
+                  }}
+                >
                   Home
                 </a>
               </li>
@@ -285,9 +288,7 @@ const AdminHomePage = () => {
 
       {/* {characteristcsStatus && <HandleCharacteristcsPageAdmin {...forms[characteristcsStatus]} />} */}
 
-      {characteristcsStatus == "default" && (
-        <DefaultTutorialPageAdmin/>
-      )}
+      {characteristcsStatus == "default" && <DefaultTutorialPageAdmin />}
 
       {characteristcsStatus == "filo" && (
         <HandleCharacteristcsPageAdmin
@@ -325,27 +326,16 @@ const AdminHomePage = () => {
         />
       )}
 
-{characteristcsStatus == "familia" && (
+      {characteristcsStatus == "familia" && (
         <HandleCharacteristcsPageAdmin
           finalPath={"familias"}
           title={"Família"}
         />
       )}
 
-{characteristcsStatus == "genero" && (
-        <HandleCharacteristcsPageAdmin
-          finalPath={"generos"}
-          title={"Gênero"}
-        />
+      {characteristcsStatus == "genero" && (
+        <HandleCharacteristcsPageAdmin finalPath={"generos"} title={"Gênero"} />
       )}
-
-{characteristcsStatus == "especie" && (
-        <HandleCharacteristcsPageAdmin
-          finalPath={"especies"}
-          title={"Espécie"}
-         />
-      )}
-
 
       {characteristcsStatus == "antena" && (
         <HandleCharacteristcsPageAdmin
@@ -414,22 +404,22 @@ const AdminHomePage = () => {
 
       {characteristcsStatus == "ordem" && (
         <HandleCharacteristcsPageAdmin
-        finalPath={"ordem"}
-        title={"Ordem"}
-        descriptionTitle={"Descrição"}
-        fields_={[
-          {
-            label: "Nome",
-            name: "nome",
-            type: "text",
-          },
-          {
-            label: "Filo",
-            name: "filo_id",
-            type: "select",
-            path: "filos",
-          },
-        ]}
+          finalPath={"ordem"}
+          title={"Ordem"}
+          descriptionTitle={"Descrição"}
+          fields_={[
+            {
+              label: "Nome",
+              name: "nome",
+              type: "text",
+            },
+            {
+              label: "Filo",
+              name: "filo_id",
+              type: "select",
+              path: "filos",
+            },
+          ]}
         />
       )}
 
@@ -448,6 +438,13 @@ const AdminHomePage = () => {
           field={"nome"}
           title={"Habitat"}
           fields={false}
+        />
+      )}
+
+      {characteristcsStatus == "especie" && (
+        <HandleEspecie
+          finalPath={"especies"}
+          title={"Espécie"}
         />
       )}
 
