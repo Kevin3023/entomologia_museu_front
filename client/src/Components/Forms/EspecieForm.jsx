@@ -140,6 +140,8 @@ const EspecieForm = ({ data, handleClose, onSubmit }) => {
     data.nome_cientifico || ""
   );
   const [nome_comum, setNomeComum] = useState(data.nome_comum || "");
+  const [curiosidades, setCuriosidades] = useState(data.curiosidade || "");
+
 
   //   TAXONOMIA
   const [listFiloData, setListFiloData] = useState([]);
@@ -172,6 +174,11 @@ const EspecieForm = ({ data, handleClose, onSubmit }) => {
   const handleInputChangeNomeComum = (e) => {
     console.log("***** handleInputChangeNomeComum", e.target.value);
     setNomeComum(e.target.value);
+  };
+
+  const handleInputChangeCuriosidade = (e) => {
+    console.log("***** handleInputChangeCuriosidade", e.target.value);
+    setCuriosidades(e.target.value);
   };
 
   const handleData = (e) => {
@@ -239,7 +246,9 @@ const EspecieForm = ({ data, handleClose, onSubmit }) => {
     delete finalData.antena_id; // erasing familia_id because it doesn't exist :)
 
     console.log("*** handle submit", finalData);
-    window.confirm("deseja salvar/alterar o item ?") ? onSubmit(finalData) /*function that send the data */ : console.log("nhew")
+    window.confirm("deseja salvar/alterar o item ?")
+      ? onSubmit(finalData) /*function that send the data */
+      : console.log("nhew");
   };
 
   return (
@@ -263,6 +272,17 @@ const EspecieForm = ({ data, handleClose, onSubmit }) => {
           placeholder={`Inserir gênero aqui`}
           onChange={handleInputChangeNomeComum}
           value={nome_comum}
+        />
+
+        <label className="form-label fs-5">Curiosidade</label>
+        <textarea
+          className="form-control mb-3"
+          rows="4" cols="50"
+          type="text"
+          name="curiosidades"
+          placeholder={`Inserir curiosidade aqui`}
+          onChange={handleInputChangeCuriosidade}
+          value={curiosidades}
         />
 
         {/* TAXONOMIA */}
