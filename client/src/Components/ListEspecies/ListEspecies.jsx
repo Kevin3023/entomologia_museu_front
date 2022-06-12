@@ -6,12 +6,10 @@ const ListEspecies = ({ data }) => {
   let navigate = useNavigate();
 
   useEffect(() => {
-    console.log("list especies")
-    console.log(data)
-    console.log("list especies")
-
+    // console.log("list especies")
+    // console.log(data)
+    // console.log("list especies")
   }, [data]);
-
 
   return (
     <>
@@ -58,4 +56,3 @@ const ListEspecies = ({ data }) => {
 };
 
 export default ListEspecies;
-
