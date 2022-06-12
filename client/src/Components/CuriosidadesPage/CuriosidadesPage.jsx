@@ -21,7 +21,7 @@ const CuriosidadesPage = ({ data }) => {
                 key={index}
                 className="col mb-5"
                 onClick={() => {
-                  navigate(`/${inseto.nomeVulgar}`);
+                  navigate(`/${inseto.nome_comum}`);
                 }}
               >
                 <div className="card">
@@ -33,9 +33,9 @@ const CuriosidadesPage = ({ data }) => {
                   />
                   <div className="card-body">
                     <h5 className="card-title text-center mt-3">
-                      <b>{inseto.nomeVulgar}</b>
+                      <b>{inseto.nome_comum}</b>
                     </h5>
-                    <p className="card-text">{inseto.curiosidade}</p>
+                    <p className="card-text">{inseto.curiosidades || "Nulo"}</p>
                   </div>
                 </div>
               </div>
