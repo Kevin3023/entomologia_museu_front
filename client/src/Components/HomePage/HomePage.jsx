@@ -1,10 +1,9 @@
-import React, { useEffect } from "react";
+import React from "react";
 import FormSearchBug from "../FormSearchBug/FormSearchBug";
 import NavMain from "../NavMain/NavMain";
 
 import ListEspecies from "../ListEspecies/ListEspecies";
 import FooterMain from "../FooterMain/FooterMain";
-import { useState } from "react";
 
 
 const HomePage = ({
@@ -13,10 +12,11 @@ const HomePage = ({
   inputValue,
   setInputValue,
   data,
+  dataSearch
 }) => {
 
   //    if exists data in data, the component BugInformation is rendered
-  let validationData = data > 0
+  // let validationData = data > 0
 
 
   return (
@@ -27,8 +27,9 @@ const HomePage = ({
         handleSubmit={handleSubmit}
         handleInputChange={handleInputChange}
         setInputValue={setInputValue}
+        dataSearch={dataSearch}
       />
-      {data.length ? <ListEspecies data={data} /> : <div className="container bg-light mt-5"><h1 className="text-center">Empty Content</h1></div>}
+      {data.length ? <ListEspecies data={data} /> : <div className="container bg-light mt-5"><h1 className="text-center">Carregando...</h1></div>}
 
       <FooterMain/>
 
