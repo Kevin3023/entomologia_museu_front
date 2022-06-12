@@ -20,6 +20,9 @@ const App = () => {
   //data from backend
   const [especieData, setEspecieData] = useState([])
 
+  //data of inputSeach
+  const [dataSearch, setDataSearch] = useState([])
+
   //catch the value from the form that contain the input user
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -29,6 +32,8 @@ const App = () => {
 
     console.log(data);
     console.log(`chave: ${Object.keys(data)}, valor: ${Object.values(data)}`);
+    setDataSearch(especieData.filter((element, value)=> Object.values(data) == element.nome_comum))
+    dataSearch.length ? console.log("ok") : alert("Inseto não encontrado :(")
     setInputValue("");
   };
 
@@ -48,6 +53,7 @@ const App = () => {
               handleInputChange={handleInputChange}
               setInputValue={setInputValue}
               data={especieData}
+              dataSearch={dataSearch}
             />
           }
         />
