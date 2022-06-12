@@ -29,7 +29,7 @@ const CuriosidadesPage = ({ data }) => {
                     src={bug}
                     className="card-img-top"
                     alt="imagem do inseto"
-                    title="inseto"
+                    title={inseto.nome_comum}
                   />
                   <div className="card-body">
                     <h5 className="card-title text-center mt-3">
