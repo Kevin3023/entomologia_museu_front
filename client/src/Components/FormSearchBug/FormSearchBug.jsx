@@ -68,7 +68,7 @@ const FormSearchBug = ({
               </div>
             );
           })}
-        </div> : <div>Nada encontrado</div>}
+        </div> : <div></div>}
         
         
       </div>
