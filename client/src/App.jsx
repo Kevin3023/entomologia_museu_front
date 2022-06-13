@@ -8,20 +8,22 @@ import InsetoDetails from "./Components/InsetoDetails/InsetoDetails";
 import LoginPage from "./Components/LoginPage/LoginPage";
 
 const App = () => {
-  useEffect( () => {
-    axios.get("https://api-museu-entomologiaufra.herokuapp.com/especies").then((result)=>{
-      setEspecieData(result.data)
-    })
+  useEffect(() => {
+    axios
+      .get("https://api-museu-entomologiaufra.herokuapp.com/especies")
+      .then((result) => {
+        setEspecieData(result.data);
+      });
   }, []);
 
   // value from user
   const [inputValue, setInputValue] = useState("");
 
   //data from backend
-  const [especieData, setEspecieData] = useState([])
+  const [especieData, setEspecieData] = useState([]);
 
   //data of inputSeach
-  const [dataSearch, setDataSearch] = useState([])
+  const [dataSearch, setDataSearch] = useState([]);
 
   //catch the value from the form that contain the input user
   const handleSubmit = (e) => {
@@ -31,9 +33,20 @@ const App = () => {
     const data = Object.fromEntries(formData);
 
     console.log(data);
-    console.log(`chave: ${Object.keys(data)}, valor: ${Object.values(data)}`);
-    setDataSearch(especieData.filter((element, value)=> Object.values(data) == element.nome_comum))
-    dataSearch.length ? console.log("ok") : alert("Inseto não encontrado :(")
+    // console.log(`chave: ${Object.keys(data)}, valor: ${Object.values(data)}`);
+    let inputForm = Object.values(data);
+    // console.log("*** inputForm", inputForm[0].length)
+
+    inputForm[0].length
+      ? setDataSearch(
+          especieData.filter((element, value) => {
+            return (
+              element.nome_comum.toLowerCase().indexOf(Object.values(data)) > -1
+            );
+          })
+        )
+      : alert("não foi encontrado nenhum inseto :(");
+
     setInputValue("");
   };
 
@@ -44,9 +57,11 @@ const App = () => {
   };
 
   return (
-    <BrowserRouter>      
+    <BrowserRouter>
       <Routes>
-        <Route path="/" element={
+        <Route
+          path="/"
+          element={
             <HomePage
               inputValue={inputValue}
               handleSubmit={handleSubmit}
@@ -59,7 +74,9 @@ const App = () => {
         />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/admin" element={<AdminHomePage />} />
-        <Route path="/curiosidades" element={<CuriosidadesPage data={especieData} />}
+        <Route
+          path="/curiosidades"
+          element={<CuriosidadesPage data={especieData} />}
         />
         <Route
           path="/:nomeVulgarInseto"
