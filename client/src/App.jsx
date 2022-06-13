@@ -22,8 +22,26 @@ const App = () => {
   //data from backend
   const [especieData, setEspecieData] = useState([]);
 
-  //data of inputSeach
+  //result data from inputSeach
   const [dataSearch, setDataSearch] = useState([]);
+
+
+  //function for add values in dataSearch
+  const findInsects = (data) => {
+
+    let aux = especieData.filter((element, value) => {
+      return (
+        element.nome_comum.toLowerCase().indexOf(Object.values(data)) > -1
+      );
+    })
+
+    setDataSearch(aux)
+    if(aux < 1){
+      alert("não foi encontrado nenhum inseto :(")
+    }
+    setInputValue("");
+  }
+
 
   //catch the value from the form that contain the input user
   const handleSubmit = (e) => {
@@ -37,17 +55,7 @@ const App = () => {
     let inputForm = Object.values(data);
     // console.log("*** inputForm", inputForm[0].length)
 
-    inputForm[0].length
-      ? setDataSearch(
-          especieData.filter((element, value) => {
-            return (
-              element.nome_comum.toLowerCase().indexOf(Object.values(data)) > -1
-            );
-          })
-        )
-      : alert("não foi encontrado nenhum inseto :(");
-
-    setInputValue("");
+    inputForm[0].length && findInsects(data)
   };
 
   //function for listen the input user
