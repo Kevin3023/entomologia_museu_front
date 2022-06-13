@@ -26,7 +26,7 @@ const CuriosidadesPage = ({ data }) => {
               >
                 <div className="card">
                   <img
-                    src={bug}
+                    src="https://source.unsplash.com/1600x900/?insect"
                     className="card-img-top"
                     alt="imagem do inseto"
                     title={inseto.nome_comum}
