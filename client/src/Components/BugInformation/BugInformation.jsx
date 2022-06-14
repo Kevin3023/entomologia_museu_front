@@ -10,7 +10,7 @@ const BugInformation = ({ data }) => {
       <div className="card mb-3 w-50 mt-4 mx-auto bg-secondary">
         <h3 className="text-white text-center mt-3">{data.nome_comum}</h3>
         <img
-          src="https://source.unsplash.com/1600x900/?insect"
+          src={data.image_url}
           className="card-img-top"
           alt={data.nome_comum}
           title={data.nome_comum}
