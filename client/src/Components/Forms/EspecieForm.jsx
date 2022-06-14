@@ -433,6 +433,9 @@ const EspecieForm = ({ data, handleClose, onSubmit }) => {
           })}
         </select>
 
+        <label className="form-label fs-5">Imagem do inseto</label>
+        <input name="image_url" type="file" className="form-control"/>
+
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
             Cancelar

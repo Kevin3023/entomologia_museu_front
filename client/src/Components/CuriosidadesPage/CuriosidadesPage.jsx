@@ -13,7 +13,7 @@ const CuriosidadesPage = ({ data }) => {
 
       {/* especies just with curiosity */}
 
-      <div className="container mt-4">
+      <div className="container mb-5 mt-4">
         <div className="row row-cols-1 row-cols-md-3">
           {data.map((inseto, index) => {
             return (
@@ -43,7 +43,7 @@ const CuriosidadesPage = ({ data }) => {
           })}
         </div>
       </div>
-      <FooterMainCopy className="fixed-bottom"/>
+      <FooterMainCopy />
     </>
   );
 };

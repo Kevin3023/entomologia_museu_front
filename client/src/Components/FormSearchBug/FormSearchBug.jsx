@@ -15,12 +15,12 @@ const FormSearchBug = ({
       <div className="navbar navbar-expand-lg navbar-light bg-light mt-5 justify-content-center py-3">
         <form onSubmit={handleSubmit}>
           <div className="input-group mb-3 ">
-            <select name="teste" className="select">
+            {/* <select name="teste" className="select">
               <option value="a">a</option>
               <option value="b">b</option>
               <option value="c" selected>c</option>
 
-            </select>
+            </select> */}
             <input
               type="text"
               className="form-control"

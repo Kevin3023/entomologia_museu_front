@@ -48,20 +48,46 @@ const HandleEspecie = ({
   };
 
   const handleSave = (data) => {
-    console.log(data);
-    axios
-      .post(
-        `https://api-museu-entomologiaufra.herokuapp.com/${finalPath}`, data)
-      .then((response) => {
-        console.log(response);
+    // console.log(data);
+    
+    
+        //add img for insect
+        const formData = new FormData()
+        // console.log(formData);
+        formData.append("images", data.image_url)
+        formData.append("project", "museumDenis")
+        formData.append("folder", "especies")
+
         axios
-          .get(`https://api-museu-entomologiaufra.herokuapp.com/${finalPath}`)
-          .then((result) => {
-            setObjectList(result.data);
-            setModalShow(false);
-            alert(`${title} adicionado com sucesso`);
-          });
-      });
+          .post(
+            `https://museu-storage-api.herokuapp.com/storage/upload`, formData, {headers:{
+              "content-type": "multipart/form-data"
+            }}).then((result)=>{
+              console.log(result.data[0])
+
+              data.image_id = result.data[0].fileName
+              data.image_url = result.data[0].url
+
+              console.log(data)
+              //my old form here
+                // axios
+                // .post(
+                //   `https://api-museu-entomologiaufra.herokuapp.com/${finalPath}`, data)
+                // .then((response) => {
+                //   console.log(response);
+                //   axios
+                //     .get(`https://api-museu-entomologiaufra.herokuapp.com/${finalPath}`)
+                //     .then((result) => {
+                //       setObjectList(result.data);
+                //       setModalShow(false);
+                //       alert(`${title} adicionado com sucesso`);
+                //     });
+                // });
+
+            })
+
+  // post default  
+    
   };
 
   useEffect(update, [finalPath]);
