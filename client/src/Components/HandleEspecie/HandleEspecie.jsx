@@ -48,9 +48,6 @@ const HandleEspecie = ({
   };
 
   const handleSave = (data) => {
-    // console.log(data);
-    
-    
         //add img for insect
         const formData = new FormData()
         // console.log(formData);
@@ -69,20 +66,20 @@ const HandleEspecie = ({
               data.image_url = result.data[0].url
 
               console.log(data)
-              //my old form here
-                // axios
-                // .post(
-                //   `https://api-museu-entomologiaufra.herokuapp.com/${finalPath}`, data)
-                // .then((response) => {
-                //   console.log(response);
-                //   axios
-                //     .get(`https://api-museu-entomologiaufra.herokuapp.com/${finalPath}`)
-                //     .then((result) => {
-                //       setObjectList(result.data);
-                //       setModalShow(false);
-                //       alert(`${title} adicionado com sucesso`);
-                //     });
-                // });
+              // my old form here
+                axios
+                .post(
+                  `https://api-museu-entomologiaufra.herokuapp.com/${finalPath}`, data)
+                .then((response) => {
+                  console.log(response);
+                  axios
+                    .get(`https://api-museu-entomologiaufra.herokuapp.com/${finalPath}`)
+                    .then((result) => {
+                      setObjectList(result.data);
+                      setModalShow(false);
+                      alert(`${title} adicionado com sucesso`);
+                    });
+                });
 
             })
 
