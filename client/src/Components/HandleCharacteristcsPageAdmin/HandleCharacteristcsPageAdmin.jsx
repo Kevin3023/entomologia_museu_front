@@ -63,35 +63,21 @@ const HandleCharacteristcsPage = ({
   const handleSave = (data) => {
     // console.log(data);
 
-    //add img for insect
-    const formData = new FormData()
-    // console.log(formData);
-    formData.append("images", data.image_url)
-    formData.append("project", "museumDenis")
-    formData.append("folder", "especies")
-    
-    console.
+
+
     axios
       .post(
-        `https://museu-storage-api.herokuapp.com/upload`, formData, {headers:{
-          "content-type": "multipart/form-data"
-        }}).then((result)=>{
-          console.log(result)
-        })
-
-    // axios
-    //   .post(
-    //     `https://api-museu-entomologiaufra.herokuapp.com/${finalPath}`, data)
-    //   .then((response) => {
-    //     console.log(response);
-    //     axios
-    //       .get(`https://api-museu-entomologiaufra.herokuapp.com/${finalPath}`)
-    //       .then((result) => {
-    //         setObjectList(result.data);
-    //         setModalShow(false);
-    //         alert(`${title} adicionado com sucesso`);
-    //       });
-    //   });
+        `https://api-museu-entomologiaufra.herokuapp.com/${finalPath}`, data)
+      .then((response) => {
+        console.log(response);
+        axios
+          .get(`https://api-museu-entomologiaufra.herokuapp.com/${finalPath}`)
+          .then((result) => {
+            setObjectList(result.data);
+            setModalShow(false);
+            alert(`${title} adicionado com sucesso`);
+          });
+      });
   };
 
   useEffect(update, [finalPath]);
