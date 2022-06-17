@@ -3,15 +3,15 @@ import { Button, Modal } from "react-bootstrap";
 
 const AbdomenForm = ({ data, title, handleClose, onSubmit }) => {
   useEffect(() => {
-    console.log("abdomen form")
+    // console.log("abdomen form")
     
-    console.log(data);
+    // console.log(data);
   }, [data]);
 
   const [value, setValue] = useState(data.nome || '')
 
   const handleInputChange = (e) => {
-    console.log("***** handleInputChange", e.target.value)
+    // console.log("***** handleInputChange", e.target.value)
     setValue(e.target.value)
   }
 
@@ -25,7 +25,7 @@ const AbdomenForm = ({ data, title, handleClose, onSubmit }) => {
       finalData.id = data.id
     } 
 
-    console.log("*** handle submit", finalData)
+    // console.log("*** handle submit", finalData)
     window.confirm("deseja salvar/alterar o item ?") ? onSubmit(finalData) /*function that send the data */ : console.log("nhew")
   };
 
