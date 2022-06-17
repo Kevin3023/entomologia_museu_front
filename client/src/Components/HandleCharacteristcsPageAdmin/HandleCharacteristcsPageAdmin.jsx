@@ -69,7 +69,7 @@ const HandleCharacteristcsPage = ({
       .post(
         `https://api-museu-entomologiaufra.herokuapp.com/${finalPath}`, data)
       .then((response) => {
-        console.log(response);
+        // console.log(response);
         axios
           .get(`https://api-museu-entomologiaufra.herokuapp.com/${finalPath}`)
           .then((result) => {

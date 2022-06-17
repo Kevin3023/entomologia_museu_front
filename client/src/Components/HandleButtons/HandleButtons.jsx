@@ -21,7 +21,7 @@ const HandleButtons = ({
             `https://api-museu-entomologiaufra.herokuapp.com/${finalPath}/${idItem}`
           )
           .then((result) => {
-            console.log(result);
+            // console.log(result);
             update();
           })
       : console.log("nada");

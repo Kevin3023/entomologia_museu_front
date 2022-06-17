@@ -50,7 +50,7 @@ const App = () => {
     const formData = new FormData(e.target);
     const data = Object.fromEntries(formData);
 
-    console.log(data);
+    // console.log(data);
     // console.log(`chave: ${Object.keys(data)}, valor: ${Object.values(data)}`);
     let inputForm = Object.values(data);
     // console.log("*** inputForm", inputForm[0].length)
@@ -60,7 +60,7 @@ const App = () => {
 
   //function for listen the input user
   const handleInputChange = (e) => {
-    console.log(e.target.value);
+    // console.log(e.target.value);
     setInputValue(e.target.value);
   };
 

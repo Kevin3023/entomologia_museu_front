@@ -6,7 +6,7 @@ const ModalEditItem = (props) => {
   return (
     <Modal backdrop="static" show={props.show} onHide={props.handleClose}>
       <Modal.Header closeButton>
-        {console.log(props.data)}
+        {/* {console.log(props.data)} */}
         <Modal.Title>Adicionar / Editar {props.title}</Modal.Title>
       </Modal.Header>
       <Modal.Body>
