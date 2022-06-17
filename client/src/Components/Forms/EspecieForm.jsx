@@ -20,7 +20,7 @@ const EspecieForm = ({ data, handleClose, onSubmit }) => {
   ];
 
   useEffect(() => {
-    console.log("Especie form");
+    // console.log("Especie form");
     console.log(data);
 
     // TAXONOMIA
@@ -167,17 +167,17 @@ const EspecieForm = ({ data, handleClose, onSubmit }) => {
   // HANDLE INPUT CHANGES
 
   const handleInputChangeNomeCientifico = (e) => {
-    console.log("***** handleInputChangeNomeCientifico", e.target.value);
+    // console.log("***** handleInputChangeNomeCientifico", e.target.value);
     setNomeCientifico(e.target.value);
   };
 
   const handleInputChangeNomeComum = (e) => {
-    console.log("***** handleInputChangeNomeComum", e.target.value);
+    // console.log("***** handleInputChangeNomeComum", e.target.value);
     setNomeComum(e.target.value);
   };
 
   const handleInputChangeCuriosidade = (e) => {
-    console.log("***** handleInputChangeCuriosidade", e.target.value);
+    // console.log("***** handleInputChangeCuriosidade", e.target.value);
     setCuriosidades(e.target.value);
   };
 
@@ -245,7 +245,17 @@ const EspecieForm = ({ data, handleClose, onSubmit }) => {
     delete finalData.aparelho_bucal_id; // erasing familia_id because it doesn't exist :)
     delete finalData.antena_id; // erasing familia_id because it doesn't exist :)
 
+    // console.log("handle submit img url from prop", data.image_url)
+    // console.log("handle submit img url from finalData", finalData.image_url)
+    if (data.image_url == finalData.image_url){
+      finalData.image_url = data.image_url
+      finalData.image_id = data.image_id
+    }
+
+
     console.log("*** handle submit", finalData);
+    // console.log("*** handle submit", finalData.image_id);
+    
     window.confirm("deseja salvar/alterar o item ?")
       ? onSubmit(finalData) /*function that send the data */
       : console.log("nhew");
