@@ -4,8 +4,8 @@ import { Button, Modal } from "react-bootstrap";
 const AparelhoBucalForm = ({ data, title, handleClose, onSubmit }) => {
   useEffect(() => {
     console.log("aparelho bucal form")
+    // console.log(data);
     
-    console.log(data);
   }, [data]);
 
   const [value, setValue] = useState(data.nome || '')
