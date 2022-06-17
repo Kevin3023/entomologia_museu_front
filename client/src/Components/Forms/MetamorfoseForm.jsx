@@ -3,37 +3,39 @@ import { Button, Modal } from "react-bootstrap";
 
 const MetamorfoseForm = ({ data, title, handleClose, onSubmit }) => {
   useEffect(() => {
-    console.log("metamorfose form")
-    
+    console.log("metamorfose form");
+
     console.log(data);
   }, [data]);
 
-  const [value, setValue] = useState(data.nome || '')
-  const [description, setDescription] = useState(data.descricao || '')
+  const [value, setValue] = useState(data.nome || "");
+  const [description, setDescription] = useState(data.descricao || "");
 
   const handleInputChange = (e) => {
-    console.log("***** handleInputChange", e.target.value)
-    setValue(e.target.value)
-  }
+    console.log("***** handleInputChange", e.target.value);
+    setValue(e.target.value);
+  };
 
   const handleInputChangeDescription = (e) => {
-    console.log("***** handleInputChangeDescription", e.target.value)
-    setDescription(e.target.value)
-  }
+    console.log("***** handleInputChangeDescription", e.target.value);
+    setDescription(e.target.value);
+  };
 
   const handleData = (e) => {
     e.preventDefault();
-    
-    const formData = new FormData(e.target)
-    const finalData = Object.fromEntries(formData)
 
-    if (data.id){
-      finalData.id = data.id
-    } 
+    const formData = new FormData(e.target);
+    const finalData = Object.fromEntries(formData);
 
-    console.log("*** handle submit", finalData)
+    if (data.id) {
+      finalData.id = data.id;
+    }
 
-    window.confirm("deseja salvar/alterar o item ?") ? onSubmit(finalData) /*function that send the data */ : console.log("nhew")
+    console.log("*** handle submit", finalData);
+
+    window.confirm("deseja salvar/alterar o item ?")
+      ? onSubmit(finalData) /*function that send the data */
+      : console.log("nhew");
   };
 
   return (
@@ -44,7 +46,7 @@ const MetamorfoseForm = ({ data, title, handleClose, onSubmit }) => {
           className="form-control"
           type="text"
           name="nome"
-          placeholder={`Inserir ${title} aqui`}
+          placeholder={`Inserir metamorfose aqui`}
           onChange={handleInputChange}
           value={value}
         />
@@ -53,18 +55,17 @@ const MetamorfoseForm = ({ data, title, handleClose, onSubmit }) => {
           className="form-control"
           type="text"
           name="descricao"
-          placeholder={`Inserir Descrição aqui`}
+          placeholder={`Inserir descrição aqui`}
           onChange={handleInputChangeDescription}
           value={description}
         />
         <Modal.Footer>
-            <Button variant="secondary" onClick={handleClose}>
+          <Button variant="secondary" onClick={handleClose}>
             Cancelar
-            </Button>
-            <Button variant="primary" type="submit">
+          </Button>
+          <Button variant="primary" type="submit">
             Salvar
-            </Button>
-
+          </Button>
         </Modal.Footer>
       </form>
     </>
@@ -72,12 +73,3 @@ const MetamorfoseForm = ({ data, title, handleClose, onSubmit }) => {
 };
 
 export default MetamorfoseForm;
-
-
-/**[
-  {
-    "descricao": "string",
-    "id": 0,
-    "nome": "string"
-  }
-] */
