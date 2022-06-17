@@ -4,14 +4,14 @@ import { Button, Modal } from "react-bootstrap";
 const AntenasForm = ({ data, title, handleClose, onSubmit }) => {
   useEffect(() => {
     console.log("antena form")
+    // console.log(data);
     
-    console.log(data);
   }, [data]);
 
   const [value, setValue] = useState(data.nome || '')
 
   const handleInputChange = (e) => {
-    console.log("***** handleInputChange", e.target.value)
+    // console.log("***** handleInputChange", e.target.value)
     setValue(e.target.value)
   }
 
