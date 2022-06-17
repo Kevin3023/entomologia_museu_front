@@ -38,11 +38,6 @@ const AdminHomePage = () => {
 
   return (
     <>
-      {/* {testeData.map((element, index) => {
-        return (
-          <h1 className="text-white" key={index} >{element.nome}</h1>
-        )
-      })} */}
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <Container fluid>
           <img src={Logo} width="50px" height="50px" alt="Logo da Ufra" />
