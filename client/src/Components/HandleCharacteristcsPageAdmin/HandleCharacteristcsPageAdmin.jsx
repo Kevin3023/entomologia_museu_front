@@ -19,10 +19,9 @@ import MetamorfoseForm from "../Forms/MetamorfoseForm";
 import OrdemForm from "../Forms/OrdemForm";
 import PernasForm from "../Forms/PernasForm";
 
-const HandleCharacteristcsPage = ({
+const HandleCharacteristcsPageAdmin = ({
   finalPath,
-  title,
-  fields_,
+  title
 }) => {
   const [objectList, setObjectList] = useState([]);
   const [modalShow, setModalShow] = useState(false);
@@ -35,6 +34,8 @@ const HandleCharacteristcsPage = ({
         setObjectList(result.data);
       });
   };
+
+  useEffect(update, [finalPath]);
 
   const handleDelete = (id) => {
     axios
@@ -62,9 +63,6 @@ const HandleCharacteristcsPage = ({
 
   const handleSave = (data) => {
     // console.log(data);
-
-
-
     axios
       .post(
         `https://api-museu-entomologiaufra.herokuapp.com/${finalPath}`, data)
@@ -80,7 +78,6 @@ const HandleCharacteristcsPage = ({
       });
   };
 
-  useEffect(update, [finalPath]);
 
   const MyForm = {
     "filos": FiloForm,
@@ -92,7 +89,7 @@ const HandleCharacteristcsPage = ({
     "asas": AsasForm,
     "pernas": PernasForm,
     "abdomens": AbdomenForm,
-    "antena": AntenasForm,
+    "antenas": AntenasForm,
     "bocas": AparelhoBucalForm,
     "metamorfoses": MetamorfoseForm,
     "comportamentos": ComportamentoForm,
@@ -175,4 +172,4 @@ const HandleCharacteristcsPage = ({
   );
 };
 
-export default HandleCharacteristcsPage;
+export default HandleCharacteristcsPageAdmin;
