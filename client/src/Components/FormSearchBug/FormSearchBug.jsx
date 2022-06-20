@@ -1,6 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import bug from "../../assets/img/louvaDeusGrande.jpeg";
+import "./styles.css"
 
 const FormSearchBug = ({
   handleSubmit,
@@ -30,7 +31,7 @@ const FormSearchBug = ({
                   <div className="card shadow">
                     <img
                       src={inseto.image_url}
-                      className="card-img-top"
+                      className="card-img-top imagem"
                       alt="imagem do inseto"
                       title={inseto.nome_comum}
                     />

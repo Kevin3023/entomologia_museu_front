@@ -27,7 +27,7 @@ const ListEspecies = ({ data }) => {
                 <div className="card">
                   <img
                     src={inseto.image_url}
-                    className="card-img-top"
+                    className="card-img-top imagem"
                     alt="imagem do inseto"
                     title={inseto.nome_comum}
                   />

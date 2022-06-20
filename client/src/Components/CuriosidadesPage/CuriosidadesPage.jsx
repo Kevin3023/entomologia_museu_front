@@ -28,11 +28,11 @@ const CuriosidadesPage = ({ data }) => {
                   <div className="card">
                     <img
                       src={inseto.image_url}
-                      className="card-img-top"
+                      className="card-img-top imagem"
                       alt="imagem do inseto"
                       title={inseto.nome_comum}
                     />
-                    <div className="card-body">
+                    <div className="card-body curiosidade">
                       <h5 className="card-title text-center mt-3">
                         <b>{inseto.nome_comum}</b>
                       </h5>
