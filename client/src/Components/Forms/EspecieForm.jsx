@@ -136,12 +136,26 @@ const EspecieForm = ({ data, handleClose, onSubmit }) => {
       });
   }, [data]);
 
-  const [nome_cientifico, setNomeCientifico] = useState(
-    data.nome_cientifico || ""
-  );
+  // states of the form value
+  const [nome_cientifico, setNomeCientifico] = useState(data.nome_cientifico || "");
   const [nome_comum, setNomeComum] = useState(data.nome_comum || "");
-  const [curiosidades, setCuriosidades] = useState(data.curiosidade || "");
+  const [curiosidades, setCuriosidades] = useState(data.curiosidades || "");
+  const [image_id, setImageId] = useState(data.image_id || "");
+  const [image_url, setImageUrl] = useState(data.image_url || "");
 
+  const [filo_id, setFilo_id] = useState(data.filo.id || '')                     
+  const [classe_id, setClasseId] = useState(data.classe.id || '')
+  const [ordem_id, setOrdemId] = useState(data.ordem.id || '')
+  const [genero_id, setGeneroId] = useState(data.genero.id || '')
+  const [familia_id, setFamiliaId] = useState(data.familia.id || '')
+  const [habitat_id, setHabitatId] = useState(data.habitat.id || '')
+  const [metamorfose_id, setMetamorfoseId] = useState(data.metamorfose.id || '')
+  const [comportamento_id, setComportamentoId] = useState(data.comportamento.id || '')
+  const [perna_id, setPernaId] = useState(data.pernas.id || '')
+  const [asa_id, setAsaId] = useState(data.asas.id || '')
+  const [abdomen_id, setAbdomenId] = useState(data.abdomen.id || '')
+  const [aparelho_bucal_id, setAparelhoBucalId] = useState(data.aparelho_bucal.id || '')
+  const [antena_id, setAntenaId] = useState(data.antenas.id || '')
 
   //   TAXONOMIA
   const [listFiloData, setListFiloData] = useState([]);
@@ -247,15 +261,17 @@ const EspecieForm = ({ data, handleClose, onSubmit }) => {
 
     // console.log("handle submit img url from prop", data.image_url)
     // console.log("handle submit img url from finalData", finalData.image_url)
-    if (data.image_url == finalData.image_url){
-      finalData.image_url = data.image_url
-      finalData.image_id = data.image_id
+    if (data.image_url == finalData.image_url) {
+      finalData.image_url = data.image_url;
+      finalData.image_id = data.image_id;
+    }else{
+      finalData.image_id = ""
     }
 
 
     console.log("*** handle submit", finalData);
     // console.log("*** handle submit", finalData.image_id);
-    
+
     window.confirm("deseja salvar/alterar o item ?")
       ? onSubmit(finalData) /*function that send the data */
       : console.log("nhew");
@@ -287,7 +303,8 @@ const EspecieForm = ({ data, handleClose, onSubmit }) => {
         <label className="form-label fs-5">Curiosidade</label>
         <textarea
           className="form-control mb-3"
-          rows="4" cols="50"
+          rows="4"
+          cols="50"
           type="text"
           name="curiosidades"
           placeholder={`Inserir curiosidade aqui`}
@@ -297,7 +314,7 @@ const EspecieForm = ({ data, handleClose, onSubmit }) => {
 
         {/* TAXONOMIA */}
         <label className="form-label fs-5">Filo</label>
-        <select name="filo_id" className="form-select mb-3">
+        <select name="filo_id" value={filo_id} onChange={filo => setFilo_id(filo.target.value)} className="form-select mb-3">
           {listFiloData.map((value, key) => {
             return (
               <option key={key} value={value.id}>
@@ -308,7 +325,7 @@ const EspecieForm = ({ data, handleClose, onSubmit }) => {
         </select>
 
         <label className="form-label fs-5">Classe</label>
-        <select name="classe_id" className="form-select mb-3">
+        <select name="classe_id" value={classe_id} onChange={classe => setClasseId(classe.target.value)} className="form-select mb-3">
           {listClasseData.map((value, key) => {
             return (
               <option key={key} value={value.id}>
@@ -319,7 +336,7 @@ const EspecieForm = ({ data, handleClose, onSubmit }) => {
         </select>
 
         <label className="form-label fs-5">Ordem</label>
-        <select name="ordem_id" className="form-select mb-3">
+        <select name="ordem_id" value={ordem_id} onChange={ordem => setOrdemId(ordem.target.value)} className="form-select mb-3">
           {listOrdemData.map((value, key) => {
             return (
               <option key={key} value={value.id}>
@@ -330,7 +347,7 @@ const EspecieForm = ({ data, handleClose, onSubmit }) => {
         </select>
 
         <label className="form-label fs-5">Família</label>
-        <select name="familia_id" className="form-select mb-3">
+        <select name="familia_id" value={familia_id} onChange={familia => setFamiliaId(familia.target.value)} className="form-select mb-3">
           {listFamiliaData.map((value, key) => {
             return (
               <option key={key} value={value.id}>
@@ -341,7 +358,7 @@ const EspecieForm = ({ data, handleClose, onSubmit }) => {
         </select>
 
         <label className="form-label fs-5">Gênero</label>
-        <select name="genero_id" className="form-select mb-3">
+        <select name="genero_id" value={genero_id} onChange={genero => setGeneroId(genero.target.value)} className="form-select mb-3">
           {listGeneroData.map((value, key) => {
             return (
               <option key={key} value={value.id}>
@@ -354,7 +371,7 @@ const EspecieForm = ({ data, handleClose, onSubmit }) => {
         {/* MORFOLOGIA */}
 
         <label className="form-label fs-5">Antena</label>
-        <select name="antena_id" className="form-select mb-3">
+        <select name="antena_id" value={antena_id} onChange={antena => setAntenaId(antena.target.value)} className="form-select mb-3">
           {listAntenaData.map((value, key) => {
             return (
               <option key={key} value={value.id}>
@@ -365,7 +382,7 @@ const EspecieForm = ({ data, handleClose, onSubmit }) => {
         </select>
 
         <label className="form-label fs-5">Aparelho Bucal</label>
-        <select name="aparelho_bucal_id" className="form-select mb-3">
+        <select name="aparelho_bucal_id" value={aparelho_bucal_id} onChange={aparelho => setAparelhoBucalId(aparelho.target.value)} className="form-select mb-3">
           {listAparelhoBucalData.map((value, key) => {
             return (
               <option key={key} value={value.id}>
@@ -376,7 +393,7 @@ const EspecieForm = ({ data, handleClose, onSubmit }) => {
         </select>
 
         <label className="form-label fs-5">Asa</label>
-        <select name="asa_id" className="form-select mb-3">
+        <select name="asa_id" value={asa_id} onChange={asa => setAsaId(asa.target.value)} className="form-select mb-3">
           {listAsaData.map((value, key) => {
             return (
               <option key={key} value={value.id}>
@@ -387,7 +404,7 @@ const EspecieForm = ({ data, handleClose, onSubmit }) => {
         </select>
 
         <label className="form-label fs-5">Abdomen</label>
-        <select name="abdomen_id" className="form-select mb-3">
+        <select name="abdomen_id" value={abdomen_id} onChange={abdomen => setAbdomenId(abdomen.target.value)} className="form-select mb-3">
           {listAbdomenData.map((value, key) => {
             return (
               <option key={key} value={value.id}>
@@ -398,7 +415,7 @@ const EspecieForm = ({ data, handleClose, onSubmit }) => {
         </select>
 
         <label className="form-label fs-5">Perna</label>
-        <select name="perna_id" className="form-select mb-3">
+        <select name="perna_id" value={perna_id} onChange={perna => setPernaId(perna.target.value)} className="form-select mb-3">
           {listPernaData.map((value, key) => {
             return (
               <option key={key} value={value.id}>
@@ -410,7 +427,7 @@ const EspecieForm = ({ data, handleClose, onSubmit }) => {
 
         {/* BIOLOGIA */}
         <label className="form-label fs-5">Metamorfose</label>
-        <select name="metamorfose_id" className="form-select mb-3">
+        <select name="metamorfose_id" value={metamorfose_id} onChange={metamorfose => setMetamorfoseId(metamorfose.target.value)} className="form-select mb-3">
           {listMetamorfoseData.map((value, key) => {
             return (
               <option key={key} value={value.id}>
@@ -422,7 +439,7 @@ const EspecieForm = ({ data, handleClose, onSubmit }) => {
 
         {/* ECOLOGIA */}
         <label className="form-label fs-5">Comportamento</label>
-        <select name="comportamento_id" className="form-select mb-3">
+        <select name="comportamento_id" value={comportamento_id} onChange={comportamento => setComportamentoId(comportamento.target.value)} className="form-select mb-3">
           {listComportamentoData.map((value, key) => {
             return (
               <option key={key} value={value.id}>
@@ -433,7 +450,7 @@ const EspecieForm = ({ data, handleClose, onSubmit }) => {
         </select>
 
         <label className="form-label fs-5">Habitat</label>
-        <select name="habitat_id" className="form-select mb-3">
+        <select name="habitat_id" value={habitat_id} onChange={habitat => setHabitatId(habitat.target.value)} className="form-select mb-3">
           {listHabitatData.map((value, key) => {
             return (
               <option key={key} value={value.id}>
@@ -444,7 +461,7 @@ const EspecieForm = ({ data, handleClose, onSubmit }) => {
         </select>
 
         <label className="form-label fs-5">Imagem do inseto</label>
-        <input name="image_url" type="file" className="form-control"/>
+        <input name="image_url" type="file" className="form-control" />
 
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
