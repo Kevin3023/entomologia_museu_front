@@ -3,30 +3,30 @@
 
 
 .backg{
-    background-color: #a3ede2;
+    background-color: #a3ede2 !important;
 }
 
 .btn-midias{
-    font-family: 'Open Sans', sans-serif;
-    font-size: 15px;
+    font-family: 'Open Sans', sans-serif !important;
+    font-size: 15px !important;
     background-color: transparent;
-    border: solid #04433a;
-    color: #04433a;
+    border: solid #04433a !important;
+    color: #04433a !important;
     width: 110px;
     height: 40px;
     border-radius: 6px;
     cursor: pointer;
     border-width: 0.1rem;
-    font-weight: bold;
+    font-weight: bold !important;
 }
 
 .btn-midias:hover{
-    background-color: #04433a;
-    color: #fff;
+    background-color: #04433a !important;
+    color: #fff !important;
     transition: 400ms;
-    border: solid #04433a;
+    border: solid #04433a !important;
 }
 
 .font{
-    color: #04433a;
+    color: #04433a !important;
 }
