@@ -1,0 +1,309 @@
+@import url('https://fonts.googleapis.com/css2?family=Corben&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+
+h1{
+  color: #a3ede2;
+}
+
+.pesquisa-container {
+  background-color: #04433a;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.pesquisa-intro{
+  margin-top: 10vh;
+  text-align: center;
+}
+
+.text-intro{
+  letter-spacing: normal;
+  font-family: 'Open Sans', sans-serif;
+  font-style: normal;
+  color: #a3ede2;
+  font-size: 40px;
+  font-weight: 300;
+}
+
+.sub-text-intro{
+  margin: 5px;
+  font-size:1.125rem;
+  font-family: 'Open Sans', sans-serif;
+  text-align:center;
+  color: #a3ede2;
+}
+
+.pesquisa{
+  margin-top: 5vh;
+  margin-bottom: 5vh;
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #a3ede2;
+}
+
+.pesquisa-aux{
+  width: 480px;
+  position: relative;
+  display: flex;
+}
+
+.input{
+  height: 37px;
+  border-radius: 4px;
+  color: black;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  width: 400px;
+  border-style: none;
+}
+
+.input::placeholder{
+  padding-left: 10px;
+}
+
+.btn-search {
+  position: absolute;
+  right: 0px;
+  background-color: #a3ede2;
+  border-style: none;
+  border-radius: 4px;
+  border-color: #a3ede2;
+  height: 37px;
+  width: 90px;
+  display: inline-block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 14px;
+  letter-spacing: -0.015em;
+  color: #04433a;
+  cursor: pointer;
+}
+
+.btn-search:hover {
+  background-color: #a3ede2;
+  border-color: #a3ede2;
+  transform: scale(1.01);
+}
+
+.main-insetos{
+  width: 100%;
+  height: 48vh;
+  display: flex;
+  flex-direction: row;
+}
+
+.main-insetos .bg-descoberta{
+  background: url('./Descoberta.svg');
+  background-position:center;
+  top: 0px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 33.3%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.main-insetos .bg-curiosidades{
+  background: url('./curiosidades.svg');
+  background-position:center;
+  top: 0px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 33.3%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.main-insetos .bg-reproducao{
+  background: url('./reproducao.svg');
+  background-position:center;
+  top: 0px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 33.3%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.insetos-bg{
+  width: 100%;
+  height: 255px;
+  background-color: #2a7c6f;
+  opacity: 0.4;
+}
+
+.leia-mais-descoberta{
+  width: 33.3%;
+  padding-bottom: 9vh;
+  position: absolute;
+  text-align:center;
+  margin: auto;
+}
+
+.leia-mais2{
+  width: 33.3%;
+  left: 33%;
+  padding-bottom: 9vh;
+  position: absolute;
+  text-align:center;
+  margin: auto;
+}
+
+.leia-mais3{
+  width: 33.3%;
+  left: 67%;
+  padding-bottom: 9vh;
+  position: absolute;
+  text-align:center;
+  margin: auto;
+}
+
+.text-leia-mais{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.leia-mais-descoberta div h3{
+  color: #a3ede2;
+  font-weight: 300;
+  font-family: 'Open Sans', sans-serif;
+  line-height:1.41em; 
+  text-align:center; 
+  font-size:22px;
+  padding-bottom: 25px;
+  width: 300px;
+}
+
+.leia-mais2 div h3{
+  color: #a3ede2;
+  font-weight: 300;
+  font-family: 'Open Sans', sans-serif;
+  line-height:1.41em; 
+  text-align:center; 
+  font-size:22px;
+  padding-bottom: 45px;
+}
+
+.leia-mais3 div h3{
+  color: #a3ede2;
+  font-weight: 300;
+  font-family: 'Open Sans', sans-serif;
+  line-height:1.41em; 
+  text-align:center; 
+  font-size:22px;
+  padding-bottom: 45px;
+}
+
+.btn-leia-mais{
+  font-family: 'Open Sans', sans-serif;
+  font-size: 15px;
+  background-color: transparent;
+  border: solid #a3ede2;
+  color: #a3ede2;
+  width: 110px;
+  height: 50px;
+  border-radius: 30px;
+  cursor: pointer;
+  border-width: 0.1rem;
+}
+
+.btn-leia-mais:hover{
+  background-color: #a3ede2;
+  color: #04433a;
+  transition: 400ms;
+}
+
+@media only screen and (max-width: 741px) {
+
+  .leia-mais-descoberta div h3{
+    padding-bottom: 7px;
+    width: 200px;
+  }
+}
+
+@media only screen and (max-width: 520px) {
+
+  .pesquisa-aux{
+    width: 90%;
+  }
+
+  .btn-search{
+    width: 65px;
+  }
+
+  .main-insetos{
+      position: relative;
+      height: 120vh;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+  }
+
+  .main-insetos .bg-descoberta{
+      width: 100%;
+      height: 400px;
+  }
+
+  .main-insetos .bg-curiosidades{
+      width: 100%;
+      height: 400px;
+  }
+
+  .main-insetos .bg-reproducao{
+      width: 100%;
+      height: 400px;
+  }
+
+  .insetos-bg{
+      opacity: 0;
+  }
+
+  .leia-mais-descoberta{
+      padding-bottom: 3vh;
+  }
+
+  .leia-mais2{
+      padding-bottom: 3vh;
+  }
+  
+  .leia-mais3{
+      left: 33%;
+      padding-bottom: 3vh;
+  }
+
+}
+
+.inputs-container{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  padding-bottom: 50px;
+  
+}
+
+.inputs-content{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+
+  padding-left: 40px;
+}

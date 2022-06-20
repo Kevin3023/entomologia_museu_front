@@ -6,6 +6,9 @@ import HomePage from "./Components/HomePage/HomePage";
 import CuriosidadesPage from "./Components/CuriosidadesPage/CuriosidadesPage";
 import InsetoDetails from "./Components/InsetoDetails/InsetoDetails";
 import LoginPage from "./Components/LoginPage/LoginPage";
+import Pesquisa from "./Components/Pesquisa/Pesquisa";
+import Equipe from "./Components/Equipe";
+import Membros from "./Components/Membros";
 
 const App = () => {
   useEffect(() => {
@@ -80,8 +83,11 @@ const App = () => {
             />
           }
         />
+        <Route path="/equipe" element={<Equipe/>}/>
+        <Route path="/membros" element={<Membros/>}/>
         <Route path="/login" element={<LoginPage />} />
         <Route path="/admin" element={<AdminHomePage />} />
+        <Route path="/pesquisa" element={<Pesquisa inputValue={inputValue} handleSubmit={handleSubmit} handleInputChange={handleInputChange} setInputValue={setInputValue} data={especieData} dataSearch={dataSearch}/>} />
         <Route
           path="/curiosidades"
           element={<CuriosidadesPage data={especieData} />}

@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css2?family=Corben&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+
+
+.equipe-container{
+    background-color: #04433a;
+    width: 100%;
+    height: 700px;
+    display: flex;
+    flex-direction: column;
+}
+
+.equipe-intro{
+    margin-top: 5vh;
+    text-align: center;
+}
+
+.equipe-imgs{
+    margin-top: 8vh;
+    width: 100%;
+    height: 30vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.container-bg{
+    width: 300px;
+    height: 380px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.equipe-bg1{
+    background: url('./Kevin.svg') no-repeat;
+	background-size: cover;
+	background-position:center;
+    top: 0px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 300px;
+    height: 380px;
+    object-fit: cover;
+}
+
+.equipe-bg2{
+    background: url('./Dennis.svg') no-repeat;
+	background-size: cover;
+	background-position:center;
+    top: 0px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 300px;
+    height: 380px;
+    object-fit: cover;
+}
+
+.equipe-bg3{
+    background: url('./John.svg') no-repeat;
+	background-size: cover;
+	background-position:center;
+    top: 0px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 300px;
+    height: 380px;
+    object-fit: cover;
+}
+
+.equipe-intro1{
+    width: 100%;
+    background-color: #fffdf8;
+    text-align: center;
+    opacity: 0.7;
+}
+
+.equipe-text{
+    margin-top: 2vh;
+    letter-spacing: normal;
+    font-family: 'Open Sans', sans-serif;
+    font-style: normal;
+    color: #2a7c6f;
+    font-size: 20px;
+    font-weight: 300;
+}
+
+.link{
+    color: #2a7c6f !important;
+    text-decoration: none;
+}
+
+
+@media only screen and (max-width: 905px) {
+
+    .equipe-imgs{
+        padding-top: 40vh;
+        flex-direction: column;
+    }
+
+    .equipe-container{
+        height: 150vh;
+    }
+
+    .container-bg{
+        padding-bottom: 20px;
+    }
+
+    .equipe-bg1{
+        height: 220px;
+        width: 80%;
+    }
+
+    .equipe-bg2{
+        width: 80%;
+    }
+
+    .equipe-bg3{
+        width: 80%;
+    }
+
+    .equipe-intro1{
+        height: 60px;
+        width: 80%;
+    }
+
+    .equipe-intro1 h3{
+        padding-top: 0vh;
+    }
+}

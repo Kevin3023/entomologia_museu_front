@@ -12,32 +12,6 @@ const FormSearchBug = ({
 
   return (
     <>
-      <div className="navbar navbar-expand-lg navbar-light bg-light mt-5 justify-content-center py-3">
-        <form onSubmit={handleSubmit}>
-          <div className="input-group mb-3 ">
-            {/* <select name="teste" className="select">
-              <option value="a">a</option>
-              <option value="b">b</option>
-              <option value="c" selected>c</option>
-
-            </select> */}
-            <input
-              type="text"
-              className="form-control"
-              placeholder="Nome do Inseto..."
-              name="input-common-user"
-              onChange={handleInputChange}
-              value={inputValue}
-            />
-            <button className="btn btn-outline-secondary">Pesquisar</button>
-          </div>
-          <div id="passwordHelpBlock" className="form-text">
-            Insira o nome do inseto para a página mostrar as informacões do
-            mesmo.
-          </div>
-        </form>
-      </div>
-
       {dataSearch.length ? (
         <div className="p-5 rounded container-fluid mt-5 align-items-center justify-content-center w-75 bg-light">
           <h2 className="mb-4 title-card">
