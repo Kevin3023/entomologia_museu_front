@@ -19,6 +19,8 @@ const ClasseForm = ({ data, title, handleClose, onSubmit }) => {
   }, [data]);
 
   const [nome, setNome] = useState(data.nome || "");
+  const [filo_id, setFiloId] = useState(data.filo.id || "");
+  
   const [listFiloData, setListFiloData] = useState([]);
 
   const handleInputChangeNome = (e) => {
@@ -60,7 +62,7 @@ const ClasseForm = ({ data, title, handleClose, onSubmit }) => {
         />
 
         <label className="form-label fs-5">Filo</label>
-        <select name="filo_id" className="form-select">
+        <select name="filo_id" value={filo_id} className="form-select" onChange={filo => setFiloId(filo.target.value)}>
           {listFiloData.map((value, key) => {
               return(
               <option key={key} value={value.id}>
