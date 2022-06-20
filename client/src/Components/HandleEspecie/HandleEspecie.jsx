@@ -49,13 +49,15 @@ const HandleEspecie = ({ finalPath, title }) => {
     // console.log(formData);
     console.log("handleSave unitData", unitData)
     console.log("handleSave dataFromEditForm", data)
+    
     const formData = new FormData();
-    formData.append("images", data.image_url);
+    formData.append("images", data.image);
     formData.append("project", "museumDenis");
     formData.append("folder", "especies");
 
     // console.log(data.image_id)
     if (data.image_url == unitData.image_url) {
+      delete data.image;
       axios
         .post(
           `https://api-museu-entomologiaufra.herokuapp.com/${finalPath}`,
