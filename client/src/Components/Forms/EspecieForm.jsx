@@ -195,6 +195,10 @@ const EspecieForm = ({ data, handleClose, onSubmit }) => {
     setCuriosidades(e.target.value);
   };
 
+  const handleImages = images => {
+    
+  }
+
   const handleData = (e) => {
     e.preventDefault();
 
@@ -264,10 +268,7 @@ const EspecieForm = ({ data, handleClose, onSubmit }) => {
     if (data.image_url == finalData.image_url) {
       finalData.image_url = data.image_url;
       finalData.image_id = data.image_id;
-    }else{
-      finalData.image_id = ""
     }
-
 
     console.log("*** handle submit", finalData);
     // console.log("*** handle submit", finalData.image_id);
@@ -460,8 +461,12 @@ const EspecieForm = ({ data, handleClose, onSubmit }) => {
           })}
         </select>
 
+        {/* {data.image_url &&
+        <img src={data.image_url} />} */}
+
         <label className="form-label fs-5">Imagem do inseto</label>
-        <input name="image_url" type="file" className="form-control" />
+        <input name="image" type="file" className="form-control" onChange={() => setImageUrl("-")}/>
+        <input name="image_url" type="hidden" className="form-control" value={image_url}/>
 
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>

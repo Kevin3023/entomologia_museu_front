@@ -28,7 +28,7 @@ const App = () => {
 
   //function for add values in dataSearch
   const findInsects = (data) => {
-
+console.log(data)
     let aux = especieData.filter((element, value) => {
       return (
         element.nome_comum.toLowerCase().indexOf(Object.values(data)) > -1
@@ -37,9 +37,9 @@ const App = () => {
 
     setDataSearch(aux)
     if(aux < 1){
-      alert("não foi encontrado nenhum inseto :(")
+      alert("não foi encontrado nenhum inseto :(") 
     }
-    setInputValue("");
+    //setInputValue("");
   }
 
 
