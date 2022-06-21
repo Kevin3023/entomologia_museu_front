@@ -24,7 +24,7 @@ const ListEspecies = ({ data }) => {
                   navigate(`/${inseto.nome_comum}`);
                 }}
               >
-                <div className="card">
+                <div className="card my-bg">
                   <img
                     src={inseto.image_url}
                     className="card-img-top imagem"

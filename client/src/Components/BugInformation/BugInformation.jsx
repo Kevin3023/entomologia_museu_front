@@ -1,13 +1,14 @@
 import React from "react";
 import BugPic from "../../assets/img/vespa.jpg";
 import NavMain from "../NavMain/NavMain";
+import "./styles.css";
 
 const BugInformation = ({ data }) => {
   return (
     <>
       <NavMain />
-
-      <div className="card mb-3 w-50 mt-4 mx-auto bg-secondary">
+      
+      <div className="card mb-3 w-50 mt-4 mx-auto bg-site">
         <h3 className="text-white text-center mt-3">{data.nome_comum}</h3>
         <img
           src={data.image_url}
