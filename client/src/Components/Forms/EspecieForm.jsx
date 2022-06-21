@@ -451,7 +451,7 @@ const EspecieForm = ({ data, handleClose, onSubmit }) => {
         </select>
 
         <label className="form-label fs-5">Habitat</label>
-        <select name="habitat_id" value={habitat_id} onChange={habitat => setHabitatId(habitat.target.value)} className="form-select mb-3">
+        <select name="habitat_id" value={habitat_id} onChange={habitat => setHabitatId(habitat.target.value)} className="form-select mb-4">
           {listHabitatData.map((value, key) => {
             return (
               <option key={key} value={value.id}>
@@ -461,10 +461,14 @@ const EspecieForm = ({ data, handleClose, onSubmit }) => {
           })}
         </select>
 
-        {/* {data.image_url &&
-        <img src={data.image_url} />} */}
+        {data.image_url &&
+        <>
+        <label className="form-label fs-5">Imagem do inseto:</label>
+        <img src={data.image_url} class="card-img-top mb-5" />
+        </>
+        }
 
-        <label className="form-label fs-5">Imagem do inseto</label>
+        <label className="form-label fs-5">Adicionar nova imagem:</label>
         <input name="image" type="file" className="form-control" onChange={() => setImageUrl("-")}/>
         <input name="image_url" type="hidden" className="form-control" value={image_url}/>
 
